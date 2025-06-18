@@ -293,7 +293,7 @@ def classification_page():
                             
                             if statements:
                                 statement_options = [
-                                    f"{stmt[\'month_year\']} - {stmt[\'statement_content\'][:50]}..."
+                                    f"{stmt['month_year']} - {stmt['statement_content'][:50]}..."
                                     for stmt in statements
                                 ]
                                 
