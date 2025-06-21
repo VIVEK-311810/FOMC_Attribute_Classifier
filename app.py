@@ -52,7 +52,7 @@ def load_excel_data():
     global df
     try:
         if os.path.exists(EXCEL_PATH):
-            df = pd.read_excel(EXCEL_PATH, engine=\'openpyxl\')
+            df = pd.read_excel(EXCEL_PATH, engine='openpyxl')
             # Convert date to proper format
             df["Date"] = pd.to_datetime(df["Date"], format="%Y%m%d")
             df["year"] = df["Date"].dt.year
@@ -271,7 +271,6 @@ def classification_page():
         
         # Historical data section
         with st.expander("📊 Select from Historical Data", expanded=False):
-            st.markdown("<div class=\"historical-section\">", unsafe_allow_html=True)
             
             # Get available years
             if st.session_state.df is not None:
@@ -305,7 +304,7 @@ def classification_page():
                             
                             if statements:
                                 statement_options = [
-                                    f"{stmt[\'month_year\']} - {stmt[\'statement_content\'][:50]}..."
+                                    f"{stmt['month_year']} - {stmt['statement_content'][:50]}..."
                                     for stmt in statements
                                 ]
                                 
