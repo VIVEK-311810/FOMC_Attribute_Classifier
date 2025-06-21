@@ -4,15 +4,54 @@
 
 An AI-powered tool for analyzing Federal Open Market Committee (FOMC) statements, classifying sentiment and policy signals using fine-tuned financial BERT models.
 
+## 📊 Classification Attributes
+
+Our system analyzes FOMC statements across six key dimensions:
+
+### 1. Sentiment Analysis
+**Purpose:** Measures overall tone of the statement  
+**Possible Classifications:**
+- `Positive` - Optimistic economic outlook
+- `Neutral` - Balanced/mixed language
+- `Negative` - Pessimistic or cautionary tone
+
+### 2. Economic Growth Outlook
+**Purpose:** Assesses projected GDP trajectory  
+**Possible Classifications:**
+- `Up` - Expecting economic expansion
+- `Flat` - Anticipating stable growth
+- `Down` - Predicting economic contraction
+
+### 3. Employment Growth Outlook
+**Purpose:** Evaluates labor market expectations  
+**Possible Classifications:**
+- `Up` - Improving employment conditions
+- `Flat` - Stable job market outlook
+- `Down` - Expected employment slowdown
+
+### 4. Inflation Outlook
+**Purpose:** Analyzes price stability projections  
+**Possible Classifications:**
+- `Up` - Rising inflation expectations
+- `Flat` - Stable price projections
+- `Down` - Disinflationary pressures
+
+### 5. Medium-Term Rate Outlook
+**Purpose:** Predicts 2-5 year rate trajectory  
+**Possible Classifications:**
+- `Hawkish` - Tightening bias expected
+- `Dovish` - Accommodative policy likely
+
+### 6. Policy Rate Direction
+**Purpose:** Forecasts near-term Fed actions  
+**Possible Classifications:**
+- `Raise` - Rate hike anticipated
+- `Flat` - Rates expected to hold
+- `Lower` - Rate cut projected
+
 
 ## ✨ Features
 
-- **Sentiment Analysis**: Positive/Neutral/Negative classification
-- **Policy Signals**: Hawkish/Dovish stance detection
-- **Economic Indicators**:
-  - Economic growth outlook (Up/Down/Flat)
-  - Inflation projections
-  - Employment trends
 - **Historical Comparison**: Analyze statement evolution over time
 - **Confidence Scoring**: Probability estimates for each classification
 
