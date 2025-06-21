@@ -48,7 +48,7 @@ df = None
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 def normalize_label(label: str) -> str:
-    return label.strip().replace(" ", "_")
+    return label.strip().lower().replace(" ", "_")
 
 def load_excel_data():
     """Load Excel data with historical FOMC statements"""
