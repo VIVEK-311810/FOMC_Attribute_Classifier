@@ -26,7 +26,7 @@ HUGGINGFACE_MODELS = {
     "Policy Rate": "Vk311810/fomc-policy_rate-classifier"
 }
 
-# Label mappings (from your Gradio code)
+# Label mappings
 label_maps = {
     "Sentiment": {"Positive": 0, "Neutral": 1, "Negative": 2},
     "Economic Growth": {"UP": 0, "Down": 1, "Flat": 2},
@@ -41,30 +41,48 @@ reverse_label_maps = {
     for label, mapping in label_maps.items()
 }
 
-# Global variables for models and data
-models = {}
-tokenizers = {}
-df = None
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 def normalize_label(label: str) -> str:
-    """Normalize label names to consistent format"""
     return label.strip().lower().replace(" ", "_")
 
+def load_models():
+    """Load all models and store them in session state"""
+    if "models" not in st.session_state or "tokenizers" not in st.session_state:
+        st.session_state.models = {}
+        st.session_state.tokenizers = {}
+        
+        for label, hf_model_id in HUGGINGFACE_MODELS.items():
+            try:
+                normalized_label = normalize_label(label)
+                logger.info(f"Loading model for {label} → {normalized_label}")
+                
+                # Load model and tokenizer
+                model = AutoModelForSequenceClassification.from_pretrained(hf_model_id)
+                tokenizer = AutoTokenizer.from_pretrained(hf_model_id)
+                
+                # Store in session state
+                st.session_state.models[normalized_label] = model.to(device)
+                st.session_state.tokenizers[normalized_label] = tokenizer
+                st.session_state.models[normalized_label].eval()
+                
+                logger.info(f"✅ Successfully loaded model for {label}")
+            except Exception as e:
+                logger.error(f"❌ Failed to load model for {label}: {str(e)}")
+                raise
+
 def load_excel_data():
-    """Load Excel data with historical FOMC statements"""
-    global df
+    """Load Excel data into session state"""
     try:
         if os.path.exists(EXCEL_PATH):
             df = pd.read_excel(EXCEL_PATH, engine='openpyxl')
-            # Convert date to proper format
             df["Date"] = pd.to_datetime(df["Date"], format="%Y%m%d")
             df["year"] = df["Date"].dt.year
             df["month"] = df["Date"].dt.month
             df["month_year"] = df["Date"].dt.strftime("%b %Y")
-            # Ensure statement_content is string type
             df["statement_content"] = df["statement_content"].astype(str)
-            logger.info(f"Successfully loaded Excel data with {len(df)} records")
+            st.session_state.df = df
+            logger.info(f"Loaded Excel data with {len(df)} records")
             return True
         else:
             logger.warning(f"Excel file not found at {EXCEL_PATH}")
@@ -73,78 +91,37 @@ def load_excel_data():
         logger.error(f"Failed to load Excel file: {str(e)}")
         return False
 
-def load_models():
-    """Load all fine-tuned models and tokenizers from Hugging Face"""
-    global models, tokenizers
-    
-    for label, hf_model_id in HUGGINGFACE_MODELS.items():
-        try:
-            normalized_label = normalize_label(label)
-            logger.info(f"Loading model for {label} → {normalized_label}")
-            
-            # Load model and tokenizer
-            model = AutoModelForSequenceClassification.from_pretrained(hf_model_id)
-            tokenizer = AutoTokenizer.from_pretrained(hf_model_id)
-            
-            # Store with normalized key
-            models[normalized_label] = model.to(device)
-            tokenizers[normalized_label] = tokenizer
-            models[normalized_label].eval()
-            
-            logger.info(f"✅ Successfully loaded model for {label} as {normalized_label}")
-        except Exception as e:
-            logger.error(f"❌ Failed to load model for {label}: {str(e)}")
-            raise  # Re-raise the exception to see the full error
-
-def startup():
-    """Initialize the application"""
-    logger.info("🚀 Starting FOMC Classifier Streamlit App...")
-    logger.info(f"Device: {device}")
-    logger.info(f"Excel Path: {EXCEL_PATH}")
-    
-    # Load models and data
-    load_models()
-    load_excel_data()
-    
-    # Verify all models loaded
-    loaded_keys = set(models.keys())
-    expected_keys = {normalize_label(label) for label in LABEL_COLUMNS}
-    
-    logger.info(f"✅ Loaded models for: {', '.join(loaded_keys)}")
-    if loaded_keys != expected_keys:
-        missing = expected_keys - loaded_keys
-        logger.warning(f"❌ Missing models for: {', '.join(missing)}")
-
 def classify_statement(text: str) -> Dict[str, Any]:
-    """Classify FOMC statement text across all categories"""
+    """Classify text using loaded models"""
     results = {}
     
-    # Debug: Show available model keys
-    logger.info(f"Available model keys: {list(models.keys())}")
+    if "models" not in st.session_state or "tokenizers" not in st.session_state:
+        logger.error("Models not loaded in session state")
+        return {normalize_label(label): {
+            "prediction": "N/A",
+            "confidence": 0.0,
+            "error": "Models not loaded"
+        } for label in LABEL_COLUMNS}
     
     for label in LABEL_COLUMNS:
         norm_key = normalize_label(label)
-        logger.info(f"Processing {label} (normalized: {norm_key})...")
+        logger.info(f"Processing {label} (key: {norm_key})")
         
-        if norm_key in models and norm_key in tokenizers:
+        if norm_key in st.session_state.models and norm_key in st.session_state.tokenizers:
             try:
-                tokenizer = tokenizers[norm_key]
-                model = models[norm_key]
+                tokenizer = st.session_state.tokenizers[norm_key]
+                model = st.session_state.models[norm_key]
                 
-                # Tokenize input
                 inputs = tokenizer(
                     text, 
                     return_tensors="pt", 
                     truncation=True, 
                     max_length=MAX_LENGTH
-                )
-                inputs = {k: v.to(device) for k, v in inputs.items()}
+                ).to(device)
                 
-                # Get predictions
                 with torch.no_grad():
                     outputs = model(**inputs)
                 
-                # Process results
                 logits = outputs.logits
                 probabilities = torch.softmax(logits, dim=-1)[0]
                 predicted_class_id = torch.argmax(probabilities).item()
@@ -156,24 +133,23 @@ def classify_statement(text: str) -> Dict[str, Any]:
                     "confidence": confidence
                 }
                 
-                logger.info(f"✅ Successfully classified {label} as {predicted_label} (confidence: {confidence:.2f})")
+                logger.info(f"✅ Classified {label} as {predicted_label} (confidence: {confidence:.2f})")
                 
             except Exception as e:
-                logger.error(f"❌ Error classifying {label}: {str(e)}")
+                logger.error(f"Error classifying {label}: {str(e)}")
                 results[norm_key] = {
                     "prediction": "Error",
                     "confidence": 0.0,
                     "error": str(e)
                 }
         else:
-            logger.warning(f"⚠️ Model or tokenizer not found for {label} (key: {norm_key})")
+            logger.warning(f"Model not found for {label} (key: {norm_key})")
             results[norm_key] = {
                 "prediction": "N/A",
                 "confidence": 0.0,
                 "error": f"Model for {label} not loaded"
             }
     
-    logger.info(f"🔍 Final classification results: {results}")
     return results
 
 # Page configuration
@@ -442,26 +418,15 @@ def main():
         st.session_state.page = "home"
     
     # Initialize models and data only once
-    if "models_loaded" not in st.session_state:
-        with st.spinner("🔄 Loading models and historical data..."):
+    if "initialized" not in st.session_state:
+        with st.spinner("🔄 Loading models and data..."):
             try:
-                startup()
-                st.session_state.models_loaded = True
-                st.session_state.df = df
-                
-                # Verify all models loaded
-                loaded_models = set(models.keys())
-                expected_models = {normalize_label(label) for label in LABEL_COLUMNS}
-                
-                if loaded_models == expected_models:
-                    st.success("✅ All models loaded successfully!")
-                else:
-                    missing = expected_models - loaded_models
-                    st.warning(f"⚠️ Some models failed to load: {', '.join(missing)}")
-                    
+                load_models()
+                load_excel_data()
+                st.session_state.initialized = True
+                st.success("✅ Models and data loaded successfully!")
             except Exception as e:
-                st.error(f"❌ Failed to initialize application: {str(e)}")
-                logger.error(f"Application initialization failed: {str(e)}")
+                st.error(f"❌ Initialization failed: {str(e)}")
                 return
 
     # Route to appropriate page
