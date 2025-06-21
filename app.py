@@ -52,7 +52,7 @@ def load_excel_data():
     global df
     try:
         if os.path.exists(EXCEL_PATH):
-            df = pd.read_excel(EXCEL_PATH, engine='openpyxl')
+            df = pd.read_excel(EXCEL_PATH, engine=\'openpyxl\')
             # Convert date to proper format
             df["Date"] = pd.to_datetime(df["Date"], format="%Y%m%d")
             df["year"] = df["Date"].dt.year
@@ -86,47 +86,35 @@ def load_models():
 def classify_statement(text: str) -> Dict[str, Any]:
     """Classify a given text using all loaded models"""
     results = {}
-
-    # Fallback to global models if session_state is not set
-    active_models = st.session_state.get("models", models)
-    active_tokenizers = st.session_state.get("tokenizers", tokenizers)
-
     for label in LABEL_COLUMNS:
-        try:
-            model = active_models.get(label)
-            tokenizer = active_tokenizers.get(label)
-
-            if model is None or tokenizer is None:
-                raise ValueError(f"Model or tokenizer for {label} not available.")
-
+        if label in models and label in tokenizers:
+            tokenizer = tokenizers[label]
+            model = models[label]
+            
             inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=MAX_LENGTH)
             inputs = {k: v.to(device) for k, v in inputs.items()}
-
+            
             with torch.no_grad():
                 outputs = model(**inputs)
-
+            
             logits = outputs.logits
             probabilities = torch.softmax(logits, dim=-1)[0]
-
+            
             predicted_class_id = torch.argmax(probabilities).item()
             predicted_label = reverse_label_maps[label][predicted_class_id]
             confidence = probabilities[predicted_class_id].item()
-
+            
             results[label.lower().replace(" ", "_")] = {
                 "prediction": predicted_label,
                 "confidence": confidence
             }
-
-        except Exception as e:
-            logger.warning(f"Classification failed for {label}: {str(e)}")
+        else:
             results[label.lower().replace(" ", "_")] = {
                 "prediction": "N/A",
                 "confidence": 0.0,
-                "error": str(e)
+                "error": f"Model for {label} not loaded."
             }
-
     return results
-
 
 # Page configuration
 st.set_page_config(
@@ -271,6 +259,7 @@ def classification_page():
         
         # Historical data section
         with st.expander("📊 Select from Historical Data", expanded=False):
+            st.markdown("<div class=\"historical-section\">", unsafe_allow_html=True)
             
             # Get available years
             if st.session_state.df is not None:
@@ -304,7 +293,7 @@ def classification_page():
                             
                             if statements:
                                 statement_options = [
-                                    f"{stmt['month_year']} - {stmt['statement_content'][:50]}..."
+                                    f"{stmt[\'month_year\']} - {stmt[\'statement_content\'][:50]}..."
                                     for stmt in statements
                                 ]
                                 
@@ -418,5 +407,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
