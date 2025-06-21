@@ -83,6 +83,22 @@ def load_models():
         except Exception as e:
             logger.error(f"Failed to load model for {label} from {hf_model_id}: {str(e)}")
 
+def startup():
+    """Simulate FastAPI-style startup event"""
+    logger.info("Starting FOMC Classifier Streamlit App...")
+    logger.info(f"Using device: {device}")
+    logger.info(f"Excel path: {EXCEL_PATH}")
+
+    load_models()
+    load_excel_data()
+
+    loaded_models_list = [label for label in LABEL_COLUMNS if label in models]
+    logger.info(f"Loaded models for: {', '.join(loaded_models_list)}")
+
+    if len(loaded_models_list) < len(LABEL_COLUMNS):
+        missing = set(LABEL_COLUMNS) - set(loaded_models_list)
+        logger.warning(f"Missing models for: {', '.join(missing)}")
+
 def classify_statement(text: str) -> Dict[str, Any]:
     """Classify a given text using all loaded models"""
     results = {}
@@ -385,11 +401,14 @@ def main():
     
     # Initialize models and data only once
     if "models_loaded" not in st.session_state:
-        with st.spinner("Loading models and historical data..."):
-            load_models()
-            load_excel_data()
-            st.session_state.models_loaded = True
-            st.session_state.df = df # Store df in session state
+            with st.spinner("🔄 Loading models and historical data..."):
+                startup()
+                st.session_state.models_loaded = True
+                st.session_state.df = df
+            num_loaded = len([label for label in LABEL_COLUMNS if label in models])
+            st.success(f"✅ Loaded {num_loaded}/{len(LABEL_COLUMNS)} models successfully!")
+
+
             
             loaded_models_list = [label for label in LABEL_COLUMNS if label in models]
             join_str = ", "
