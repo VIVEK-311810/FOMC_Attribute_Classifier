@@ -52,7 +52,7 @@ def load_excel_data():
     global df
     try:
         if os.path.exists(EXCEL_PATH):
-            df = pd.read_excel(EXCEL_PATH, engine=\'openpyxl\')
+            df = pd.read_excel(EXCEL_PATH, engine='openpyxl')
             # Convert date to proper format
             df["Date"] = pd.to_datetime(df["Date"], format="%Y%m%d")
             df["year"] = df["Date"].dt.year
@@ -82,6 +82,22 @@ def load_models():
             logger.info(f"Successfully loaded model for {label} from {hf_model_id}")
         except Exception as e:
             logger.error(f"Failed to load model for {label} from {hf_model_id}: {str(e)}")
+
+def startup():
+    """Simulate FastAPI-style startup event"""
+    logger.info("Starting FOMC Classifier Streamlit App...")
+    logger.info(f"Using device: {device}")
+    logger.info(f"Excel path: {EXCEL_PATH}")
+
+    load_models()
+    load_excel_data()
+
+    loaded_models_list = [label for label in LABEL_COLUMNS if label in models]
+    logger.info(f"Loaded models for: {', '.join(loaded_models_list)}")
+
+    if len(loaded_models_list) < len(LABEL_COLUMNS):
+        missing = set(LABEL_COLUMNS) - set(loaded_models_list)
+        logger.warning(f"Missing models for: {', '.join(missing)}")
 
 def classify_statement(text: str) -> Dict[str, Any]:
     """Classify a given text using all loaded models"""
@@ -259,11 +275,11 @@ def classification_page():
         
         # Historical data section
         with st.expander("📊 Select from Historical Data", expanded=False):
-            st.markdown("<div class=\"historical-section\">", unsafe_allow_html=True)
+            
             
             # Get available years
             if st.session_state.df is not None:
-                years = sorted(st.session_state.df["year"].unique(), reverse=True)
+                years = sorted(st.session_state.df["year"].unique())
                 
                 selected_year = st.selectbox("Select Year", years, key="year_select")
                 
@@ -293,7 +309,7 @@ def classification_page():
                             
                             if statements:
                                 statement_options = [
-                                    f"{stmt[\'month_year\']} - {stmt[\'statement_content\'][:50]}..."
+                                    f"{stmt['month_year']} - {stmt['statement_content'][:50]}..."
                                     for stmt in statements
                                 ]
                                 
@@ -385,11 +401,14 @@ def main():
     
     # Initialize models and data only once
     if "models_loaded" not in st.session_state:
-        with st.spinner("Loading models and historical data..."):
-            load_models()
-            load_excel_data()
-            st.session_state.models_loaded = True
-            st.session_state.df = df # Store df in session state
+            with st.spinner("🔄 Loading models and historical data..."):
+                startup()
+                st.session_state.models_loaded = True
+                st.session_state.df = df
+            num_loaded = len([label for label in LABEL_COLUMNS if label in models])
+            st.success(f"✅ Loaded {num_loaded}/{len(LABEL_COLUMNS)} models successfully!")
+
+
             
             loaded_models_list = [label for label in LABEL_COLUMNS if label in models]
             join_str = ", "
