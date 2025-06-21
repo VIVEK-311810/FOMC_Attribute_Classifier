@@ -48,6 +48,7 @@ df = None
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 def normalize_label(label: str) -> str:
+    """Normalize label names to consistent format"""
     return label.strip().lower().replace(" ", "_")
 
 def load_excel_data():
@@ -79,51 +80,100 @@ def load_models():
     for label, hf_model_id in HUGGINGFACE_MODELS.items():
         try:
             normalized_label = normalize_label(label)
-            models[normalized_label] = AutoModelForSequenceClassification.from_pretrained(hf_model_id)
-            tokenizers[normalized_label] = AutoTokenizer.from_pretrained(hf_model_id)
-            models[normalized_label].to(device)
+            logger.info(f"Loading model for {label} → {normalized_label}")
+            
+            # Load model and tokenizer
+            model = AutoModelForSequenceClassification.from_pretrained(hf_model_id)
+            tokenizer = AutoTokenizer.from_pretrained(hf_model_id)
+            
+            # Store with normalized key
+            models[normalized_label] = model.to(device)
+            tokenizers[normalized_label] = tokenizer
             models[normalized_label].eval()
-            logger.info(f"✅ Loaded model for {label} → stored as {normalized_label}")
+            
+            logger.info(f"✅ Successfully loaded model for {label} as {normalized_label}")
         except Exception as e:
             logger.error(f"❌ Failed to load model for {label}: {str(e)}")
-
+            raise  # Re-raise the exception to see the full error
 
 def startup():
+    """Initialize the application"""
     logger.info("🚀 Starting FOMC Classifier Streamlit App...")
     logger.info(f"Device: {device}")
     logger.info(f"Excel Path: {EXCEL_PATH}")
+    
+    # Load models and data
     load_models()
     load_excel_data()
-    loaded_keys = list(models.keys())
+    
+    # Verify all models loaded
+    loaded_keys = set(models.keys())
+    expected_keys = {normalize_label(label) for label in LABEL_COLUMNS}
+    
     logger.info(f"✅ Loaded models for: {', '.join(loaded_keys)}")
+    if loaded_keys != expected_keys:
+        missing = expected_keys - loaded_keys
+        logger.warning(f"❌ Missing models for: {', '.join(missing)}")
 
 def classify_statement(text: str) -> Dict[str, Any]:
+    """Classify FOMC statement text across all categories"""
     results = {}
+    
+    # Debug: Show available model keys
+    logger.info(f"Available model keys: {list(models.keys())}")
+    
     for label in LABEL_COLUMNS:
         norm_key = normalize_label(label)
+        logger.info(f"Processing {label} (normalized: {norm_key})...")
+        
         if norm_key in models and norm_key in tokenizers:
-            tokenizer = tokenizers[norm_key]
-            model = models[norm_key]
-            inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=MAX_LENGTH)
-            inputs = {k: v.to(device) for k, v in inputs.items()}
-            with torch.no_grad():
-                outputs = model(**inputs)
-            logits = outputs.logits
-            probabilities = torch.softmax(logits, dim=-1)[0]
-            predicted_class_id = torch.argmax(probabilities).item()
-            predicted_label = reverse_label_maps[label][predicted_class_id]
-            confidence = probabilities[predicted_class_id].item()
-            results[norm_key] = {
-                "prediction": predicted_label,
-                "confidence": confidence
-            }
+            try:
+                tokenizer = tokenizers[norm_key]
+                model = models[norm_key]
+                
+                # Tokenize input
+                inputs = tokenizer(
+                    text, 
+                    return_tensors="pt", 
+                    truncation=True, 
+                    max_length=MAX_LENGTH
+                )
+                inputs = {k: v.to(device) for k, v in inputs.items()}
+                
+                # Get predictions
+                with torch.no_grad():
+                    outputs = model(**inputs)
+                
+                # Process results
+                logits = outputs.logits
+                probabilities = torch.softmax(logits, dim=-1)[0]
+                predicted_class_id = torch.argmax(probabilities).item()
+                predicted_label = reverse_label_maps[label][predicted_class_id]
+                confidence = probabilities[predicted_class_id].item()
+                
+                results[norm_key] = {
+                    "prediction": predicted_label,
+                    "confidence": confidence
+                }
+                
+                logger.info(f"✅ Successfully classified {label} as {predicted_label} (confidence: {confidence:.2f})")
+                
+            except Exception as e:
+                logger.error(f"❌ Error classifying {label}: {str(e)}")
+                results[norm_key] = {
+                    "prediction": "Error",
+                    "confidence": 0.0,
+                    "error": str(e)
+                }
         else:
+            logger.warning(f"⚠️ Model or tokenizer not found for {label} (key: {norm_key})")
             results[norm_key] = {
                 "prediction": "N/A",
                 "confidence": 0.0,
                 "error": f"Model for {label} not loaded"
             }
-    logger.info(f"🔍 Classification results: {results}")
+    
+    logger.info(f"🔍 Final classification results: {results}")
     return results
 
 # Page configuration
@@ -218,17 +268,17 @@ def home_page():
     st.markdown("### A financial-domain BERT model for Federal Reserve (FOMC) document analysis.")
     
     st.markdown("""
-    <div style=\'text-align: center; padding: 2rem 0;\'>
+    <div style='text-align: center; padding: 2rem 0;'>
         <h3>
             This project fine-tuned ProsusAI/finBERT using FOMC statements to improve financial NLP tasks.
         </h3>
         <h4>
             ProsusAI → (MLM FineTuning) → fomc_mlm_minutes → (MLM FineTuning) → fomc_mlm_statements → (Classification FineTuning) → FOMC_LLM_VK
         </h4>
-        <p style=\'font-size: 1.1em; margin: 2rem 0;\'>
-            FOMC Minutes are the detailed records of the Federal Reserve\'s meetings released late.<br>
+        <p style='font-size: 1.1em; margin: 2rem 0;'>
+            FOMC Minutes are the detailed records of the Federal Reserve's meetings released late.<br>
             FOMC Statements are concise summaries released immediately after the meeting.<br><br>
-            These FOMC data is helpful to guide market expectations and signal the Fed\'s outlook on Inflation, Economic Growth, and more.<br>
+            These FOMC data is helpful to guide market expectations and signal the Fed's outlook on Inflation, Economic Growth, and more.<br>
             This model is helpful for classifying these FOMC statements according to 6 attributes:<br>
             <strong>Sentiment, Economic Growth, Employment Growth, Inflation, Medium Term Rate, Policy Rate</strong>
         </p>
@@ -269,8 +319,6 @@ def classification_page():
         
         # Historical data section
         with st.expander("📊 Select from Historical Data", expanded=False):
-            
-            
             # Get available years
             if st.session_state.df is not None:
                 years = sorted(st.session_state.df["year"].unique())
@@ -387,8 +435,6 @@ def classification_page():
         df_mappings = pd.DataFrame(mapping_data)
         st.dataframe(df_mappings, use_container_width=True, hide_index=True)
 
-
-
 def main():
     """Main application logic"""
     # Initialize session state
@@ -397,29 +443,32 @@ def main():
     
     # Initialize models and data only once
     if "models_loaded" not in st.session_state:
-            with st.spinner("🔄 Loading models and historical data..."):
+        with st.spinner("🔄 Loading models and historical data..."):
+            try:
                 startup()
                 st.session_state.models_loaded = True
                 st.session_state.df = df
-            num_loaded = len([label for label in LABEL_COLUMNS if label in models])
-            st.success(f"✅ Loaded {num_loaded}/{len(LABEL_COLUMNS)} models successfully!")
-
-
-            
-            loaded_models_list = [label for label in LABEL_COLUMNS if label in models]
-            join_str = ", "
-            logger.info(f"Loaded models for: {join_str.join(loaded_models_list)}")
-            
-            if len(loaded_models_list) < len(LABEL_COLUMNS):
-                missing = set(LABEL_COLUMNS) - set(loaded_models_list)
-                logger.warning(f"Missing models for: {", ".join(missing)}")
+                
+                # Verify all models loaded
+                loaded_models = set(models.keys())
+                expected_models = {normalize_label(label) for label in LABEL_COLUMNS}
+                
+                if loaded_models == expected_models:
+                    st.success("✅ All models loaded successfully!")
+                else:
+                    missing = expected_models - loaded_models
+                    st.warning(f"⚠️ Some models failed to load: {', '.join(missing)}")
+                    
+            except Exception as e:
+                st.error(f"❌ Failed to initialize application: {str(e)}")
+                logger.error(f"Application initialization failed: {str(e)}")
+                return
 
     # Route to appropriate page
     if st.session_state.page == "home":
         home_page()
     elif st.session_state.page == "classification":
         classification_page()
-
 
 if __name__ == "__main__":
     main()
