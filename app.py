@@ -75,61 +75,52 @@ def load_models():
     
     for label, hf_model_id in HUGGINGFACE_MODELS.items():
         try:
-            models[label] = AutoModelForSequenceClassification.from_pretrained(hf_model_id)
-            tokenizers[label] = AutoTokenizer.from_pretrained(hf_model_id)
-            models[label].to(device)
-            models[label].eval()
-            logger.info(f"Successfully loaded model for {label} from {hf_model_id}")
+            normalized_label = label.strip().lower().replace(" ", "_")
+            models[normalized_label] = AutoModelForSequenceClassification.from_pretrained(hf_model_id)
+            tokenizers[normalized_label] = AutoTokenizer.from_pretrained(hf_model_id)
+            models[normalized_label].to(device)
+            models[normalized_label].eval()
+            logger.info(f"✅ Loaded model for {label} → stored as {normalized_label}")
         except Exception as e:
-            logger.error(f"Failed to load model for {label} from {hf_model_id}: {str(e)}")
+            logger.error(f"❌ Failed to load model for {label}: {str(e)}")
+
 
 def startup():
-    """Simulate FastAPI-style startup event"""
-    logger.info("Starting FOMC Classifier Streamlit App...")
-    logger.info(f"Using device: {device}")
-    logger.info(f"Excel path: {EXCEL_PATH}")
-
+    logger.info("🚀 Starting FOMC Classifier Streamlit App...")
+    logger.info(f"Device: {device}")
+    logger.info(f"Excel Path: {EXCEL_PATH}")
     load_models()
     load_excel_data()
-
-    loaded_models_list = [label for label in LABEL_COLUMNS if label in models]
-    logger.info(f"Loaded models for: {', '.join(loaded_models_list)}")
-
-    if len(loaded_models_list) < len(LABEL_COLUMNS):
-        missing = set(LABEL_COLUMNS) - set(loaded_models_list)
-        logger.warning(f"Missing models for: {', '.join(missing)}")
+    loaded_keys = list(models.keys())
+    logger.info(f"✅ Loaded models for: {', '.join(loaded_keys)}")
 
 def classify_statement(text: str) -> Dict[str, Any]:
-    """Classify a given text using all loaded models"""
     results = {}
     for label in LABEL_COLUMNS:
-        if label in models and label in tokenizers:
-            tokenizer = tokenizers[label]
-            model = models[label]
-            
+        norm_key = normalize_label(label)
+        if norm_key in models and norm_key in tokenizers:
+            tokenizer = tokenizers[norm_key]
+            model = models[norm_key]
             inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=MAX_LENGTH)
             inputs = {k: v.to(device) for k, v in inputs.items()}
-            
             with torch.no_grad():
                 outputs = model(**inputs)
-            
             logits = outputs.logits
             probabilities = torch.softmax(logits, dim=-1)[0]
-            
             predicted_class_id = torch.argmax(probabilities).item()
             predicted_label = reverse_label_maps[label][predicted_class_id]
             confidence = probabilities[predicted_class_id].item()
-            
-            results[label.lower().replace(" ", "_")] = {
+            results[norm_key] = {
                 "prediction": predicted_label,
                 "confidence": confidence
             }
         else:
-            results[label.lower().replace(" ", "_")] = {
+            results[norm_key] = {
                 "prediction": "N/A",
                 "confidence": 0.0,
-                "error": f"Model for {label} not loaded."
+                "error": f"Model for {label} not loaded"
             }
+    logger.info(f"🔍 Classification results: {results}")
     return results
 
 # Page configuration
