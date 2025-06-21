@@ -1,12 +1,9 @@
 # 🏛️ FOMC Statement Classifier
 
-[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://fomc-classifier.streamlit.app/)
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://fomc-economic-attribute-classifier.streamlit.app/)
 
 An AI-powered tool for analyzing Federal Open Market Committee (FOMC) statements, classifying sentiment and policy signals using fine-tuned financial BERT models.
 
-![App Screenshot](https://example.com/path/to/screenshot.png) <!-- Replace with actual screenshot -->
 
 ## ✨ Features
 
@@ -26,10 +23,15 @@ graph TD
     A[FOMC Statements] --> B(Preprocessing)
     B --> C[Financial BERT Models]
     C --> D[Sentiment Classifier]
-    C --> E[Economic Growth Classifier]
     C --> F[Inflation Classifier]
-    C --> G[Policy Rate Classifier]
-    D --> H[Visualization Dashboard]
-    E --> H
-    F --> H
-    G --> H
+    C --> E[Economic Growth Classifier]
+    C --> G[Employment Growth Classifier]
+    C --> H[Policy Rate Classifier]
+    C --> I[Medium Term Rate Classifier]
+    D --> J[FOMC Statement Classifier]
+    E --> J[FOMC Statement Classifier]
+    F --> J[FOMC Statement Classifier]
+    G --> J[FOMC Statement Classifier]
+    I --> J[FOMC Statement Classifier]
+```
+![App](https://github.com/user-attachments/assets/7ca0eed7-fc56-4ae9-b2ac-16f0f98b26c5)
