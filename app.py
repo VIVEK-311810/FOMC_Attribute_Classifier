@@ -47,7 +47,7 @@ tokenizers = {}
 df = None
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-def normalize_label(label: str) -> str:
+def normalized_label(label: str) -> str:
     return label.strip().lower().replace(" ", "_")
   
 def load_excel_data():
