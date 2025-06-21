@@ -78,7 +78,6 @@ def load_models():
     
     for label, hf_model_id in HUGGINGFACE_MODELS.items():
         try:
-            normalized_label = label.strip().lower().replace(" ", "_")
             models[normalized_label] = AutoModelForSequenceClassification.from_pretrained(hf_model_id)
             tokenizers[normalized_label] = AutoTokenizer.from_pretrained(hf_model_id)
             models[normalized_label].to(device)
