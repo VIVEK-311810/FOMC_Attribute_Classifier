@@ -396,24 +396,22 @@ def main():
     
     # Initialize models and data only once
     if "models_loaded" not in st.session_state:
-        with st.spinner("🔄 Loading models and historical data..."):
-            startup()
-            st.session_state.models_loaded = True
-            st.session_state.df = df
-        
-        # ✅ Normalize keys when checking loaded models
-        num_loaded = len([label for label in LABEL_COLUMNS if normalize_label(label) in models])
-        st.success(f"✅ Loaded {num_loaded}/{len(LABEL_COLUMNS)} models successfully!")
+            with st.spinner("🔄 Loading models and historical data..."):
+                startup()
+                st.session_state.models_loaded = True
+                st.session_state.df = df
+            num_loaded = len([label for label in LABEL_COLUMNS if label in models])
+            st.success(f"✅ Loaded {num_loaded}/{len(LABEL_COLUMNS)} models successfully!")
 
-        # ✅ Normalize for missing model reporting
-        loaded_models_list = [label for label in LABEL_COLUMNS if normalize_label(label) in models]
-        join_str = ", "
-        logger.info(f"Loaded models for: {join_str.join(loaded_models_list)}")
 
-        missing = [label for label in LABEL_COLUMNS if normalize_label(label) not in models]
-        if missing:
-            logger.warning(f"Missing models for: {', '.join(missing)}")
-            st.warning(f"⚠️ Some models failed to load: {', '.join(missing)}")
+            
+            loaded_models_list = [label for label in LABEL_COLUMNS if label in models]
+            join_str = ", "
+            logger.info(f"Loaded models for: {join_str.join(loaded_models_list)}")
+            
+            if len(loaded_models_list) < len(LABEL_COLUMNS):
+                missing = set(LABEL_COLUMNS) - set(loaded_models_list)
+                logger.warning(f"Missing models for: {", ".join(missing)}")
 
     # Route to appropriate page
     if st.session_state.page == "home":
