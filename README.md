@@ -1,6 +1,5 @@
 # 🏛️ FOMC Statement Classifier
 
-[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://fomc-economic-attribute-classifier.streamlit.app/)
 
 An AI-powered tool for analyzing Federal Open Market Committee (FOMC) statements, classifying sentiment and policy signals using fine-tuned financial BERT models.
 
