@@ -3,7 +3,7 @@ import torch
 import pandas as pd
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import os
-from typing import Dict, Any
+from typing import Dict, List, Optional, Any
 import logging
 
 # Configure logging
@@ -12,9 +12,11 @@ logger = logging.getLogger(__name__)
 
 # Configuration
 EXCEL_PATH = os.getenv("EXCEL_PATH", "./data/Sentiment&Attributes_Classification.xlsx")
-LABEL_COLUMNS = ["Sentiment", "Economic Growth", "Employment Growth", "Inflation", "Medium Term Rate", "Policy Rate"]
+LABEL_COLUMNS = ["Sentiment", "Economic Growth", "Employment Growth",
+                 "Inflation", "Medium Term Rate", "Policy Rate"]
 MAX_LENGTH = 128
 
+# Hugging Face Model IDs
 HUGGINGFACE_MODELS = {
     "Sentiment": "Vk311810/fomc_sentiment_classifier",
     "Economic Growth": "Vk311810/fomc-economic_growth-classifier",
@@ -24,6 +26,7 @@ HUGGINGFACE_MODELS = {
     "Policy Rate": "Vk311810/fomc-policy_rate-classifier"
 }
 
+# Label mappings
 label_maps = {
     "Sentiment": {"Positive": 0, "Neutral": 1, "Negative": 2},
     "Economic Growth": {"UP": 0, "Down": 1, "Flat": 2},
@@ -114,7 +117,6 @@ def startup():
     loaded_keys = list(models.keys())
     logger.info(f"✅ Loaded models for: {', '.join(loaded_keys)}")
 
-# Set up Streamlit UI (simplified for clarity)
 st.set_page_config(page_title="FOMC Classifier", layout="wide")
 st.title("🏛️ FOMC Statement Classifier")
 
@@ -125,7 +127,6 @@ if "models_loaded" not in st.session_state:
         st.session_state.df = df
         st.success("✅ All models loaded successfully!")
 
-# Text input box
 text = st.text_area("📝 Paste FOMC statement here:", height=200)
 if st.button("🎯 Classify"):
     if text.strip():
