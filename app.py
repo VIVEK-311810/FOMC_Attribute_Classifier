@@ -83,42 +83,50 @@ def load_models():
         except Exception as e:
             logger.error(f"Failed to load model for {label} from {hf_model_id}: {str(e)}")
 
-
-
 def classify_statement(text: str) -> Dict[str, Any]:
+    """Classify a given text using all loaded models"""
     results = {}
+
+    # Fallback to global models if session_state is not set
+    active_models = st.session_state.get("models", models)
+    active_tokenizers = st.session_state.get("tokenizers", tokenizers)
+
     for label in LABEL_COLUMNS:
-        norm_key = normalize_label(label)
-      
-        if norm_key in models and norm_key in tokenizers:
-            tokenizer = tokenizers[norm_key]
-            model = models[norm_key]
+        try:
+            model = active_models.get(label)
+            tokenizer = active_tokenizers.get(label)
+
+            if model is None or tokenizer is None:
+                raise ValueError(f"Model or tokenizer for {label} not available.")
+
             inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=MAX_LENGTH)
             inputs = {k: v.to(device) for k, v in inputs.items()}
-          
+
             with torch.no_grad():
                 outputs = model(**inputs)
-              
+
             logits = outputs.logits
             probabilities = torch.softmax(logits, dim=-1)[0]
+
             predicted_class_id = torch.argmax(probabilities).item()
             predicted_label = reverse_label_maps[label][predicted_class_id]
             confidence = probabilities[predicted_class_id].item()
-          
-            results[norm_key] = {
+
+            results[label.lower().replace(" ", "_")] = {
                 "prediction": predicted_label,
                 "confidence": confidence
             }
-          
-        else:
-            results[norm_key] = {
+
+        except Exception as e:
+            logger.warning(f"Classification failed for {label}: {str(e)}")
+            results[label.lower().replace(" ", "_")] = {
                 "prediction": "N/A",
                 "confidence": 0.0,
-                "error": f"Model for {label} not loaded"
+                "error": str(e)
             }
-          
-    logger.info(f"🔍 Classification results: {results}")
+
     return results
+
 
 # Page configuration
 st.set_page_config(
