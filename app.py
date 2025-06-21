@@ -47,7 +47,7 @@ tokenizers = {}
 df = None
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-def normalized_label(label: str) -> str:
+def normalize_label(label: str) -> str:
     return label.strip().lower().replace(" ", "_")
   
 def load_excel_data():
@@ -78,6 +78,7 @@ def load_models():
     
     for label, hf_model_id in HUGGINGFACE_MODELS.items():
         try:
+            normalized_label = normalize_label(label)
             models[normalized_label] = AutoModelForSequenceClassification.from_pretrained(hf_model_id)
             tokenizers[normalized_label] = AutoTokenizer.from_pretrained(hf_model_id)
             models[normalized_label].to(device)
