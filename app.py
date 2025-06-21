@@ -47,8 +47,6 @@ tokenizers = {}
 df = None
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-def normalize_label(label: str) -> str:
-    return label.strip().lower().replace(" ", "_")
   
 def load_excel_data():
     """Load Excel data with historical FOMC statements"""
@@ -78,7 +76,7 @@ def load_models():
     
     for label, hf_model_id in HUGGINGFACE_MODELS.items():
         try:
-            normalized_label = normalize_label(label)
+            normalized_label = label
             models[normalized_label] = AutoModelForSequenceClassification.from_pretrained(hf_model_id)
             tokenizers[normalized_label] = AutoTokenizer.from_pretrained(hf_model_id)
             models[normalized_label].to(device)
@@ -100,7 +98,7 @@ def startup():
 def classify_statement(text: str) -> Dict[str, Any]:
     results = {}
     for label in LABEL_COLUMNS:
-        norm_key = normalize_label(label)
+        norm_key = label
         if norm_key in models and norm_key in tokenizers:
             tokenizer = tokenizers[norm_key]
             model = models[norm_key]
