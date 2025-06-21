@@ -74,5 +74,5 @@ graph TD
     I --> J[FOMC Statement Classifier]
 ```
 
-[![Website](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://fomc-economic-attribute-classifier.streamlit.app/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://fomc-economic-attribute-classifier.streamlit.app/)
 ![App](https://github.com/user-attachments/assets/7ca0eed7-fc56-4ae9-b2ac-16f0f98b26c5)
