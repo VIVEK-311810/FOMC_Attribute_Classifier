@@ -418,16 +418,11 @@ st.markdown("""
         color: black;
     }
 
-    .stSelectbox div div{
+    .stSelectbox div{
     background-color: white;
     color: black;
     }
 
-    
-    .stSelectbox div div div div input{
-    background-color: white;
-    color: black;
-    }
 
     @media (max-width: 768px) {
         .main-title {
