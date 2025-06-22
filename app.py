@@ -263,6 +263,19 @@ def home_page():
         <h2 class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</h2>
     </div>
     """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div style="text-align: center; padding: 1rem 0;">
+        <p style="font-size: 1.1em; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+            The Federal Open Market Committee (FOMC) statements are among the most scrutinized documents in the financial world, 
+            capable of influencing markets with every word. Deciphering their dense and nuanced language can be a significant challenge.
+            
+            This application provides a powerful, AI-driven solution to analyze and classify these critical statements, 
+            transforming complex financial jargon into clear, actionable economic insights.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
   
     st.markdown("""
     <div style='text-align: center; padding: 1.5rem 0;'>
