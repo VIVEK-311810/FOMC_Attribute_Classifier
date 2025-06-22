@@ -399,6 +399,7 @@ st.markdown("""
 
     div[data-testid="stMarkdownContainer"] {
         background-color: transparent !important;
+        color: black;
     }
 
     @media (max-width: 768px) {
