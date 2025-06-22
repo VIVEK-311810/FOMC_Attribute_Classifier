@@ -350,7 +350,6 @@ st.markdown("""
         margin-bottom: 0;
     }
 
-
     .stDataFrame {
         border-radius: 8px;
         overflow: hidden;
@@ -399,9 +398,6 @@ st.markdown("""
         background-color: transparent !important;
     }  
 
-    .stSelectbox div[data-testid="stMarkdownContainer"] {
-    background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%) !important;
-    }
     
 
     @media (max-width: 768px) {
