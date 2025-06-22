@@ -368,6 +368,8 @@ st.markdown("""
     }
 
     .stDataFrame th {
+        background-color: white;
+        color: black;
         font-weight: bold;
         padding: 12px 15px;
         text-align: left;
@@ -375,6 +377,8 @@ st.markdown("""
     }
 
     .stDataFrame td {
+        background-color: white;
+        color: black;
         padding: 10px 15px;
         border-bottom: 1px solid #c1e9e9;
     }
