@@ -483,6 +483,7 @@ def home_page():
         .highlight-box p {
             font-size: 1.15rem;
             color: #34495e;
+            text-align: center;
             margin: 0.5rem 0;
         }
     
