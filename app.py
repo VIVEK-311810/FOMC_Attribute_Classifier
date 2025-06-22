@@ -165,7 +165,7 @@ st.set_page_config(
 st.markdown("""
 <style>
     .stApp {
-        background-color: linear-gradient(135deg, #f0f0f0 0%, #d9d9d9 100%);
+        background-color: #ffffff;
         color: #2c3e50; /* Set a default dark text color for the entire app */
     }
 
@@ -301,7 +301,7 @@ st.markdown("""
     }
 
     .classification-result {
-        background: linear-gradient(135deg, #1a1a1a 0%, #f5f5f5 100%);
+        background: #ffffff;
         padding: 1.5rem;
         border-radius: 12px;
         margin: 1rem 0;
@@ -440,7 +440,7 @@ def home_page():
     st.markdown("""
     <style>
         .stApp {
-            background-color: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);;
+            background-color: #ffffff;
         }
     
         .content-section {
