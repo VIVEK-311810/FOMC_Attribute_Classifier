@@ -252,7 +252,7 @@ st.markdown("""
         margin: 2rem 0;
     }
     
-    .attributes-grid a{
+    .attributes-grid a:link{
       text-decoration:none;
     }
     
