@@ -398,6 +398,11 @@ st.markdown("""
         background-color: transparent !important;
     }
 
+    .stSelectbox{
+    background-color:transparent !important;
+    color: black;
+    }
+
     @media (max-width: 768px) {
         .main-title {
             font-size: 2.4rem !important;
