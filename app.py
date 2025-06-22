@@ -409,10 +409,12 @@ st.markdown("""
     }
 
     div[data-testid="stTextAreaRootElement"] div textarea {
+        background-color: white !important;
         color: black;
     }
 
     div[data-testid="stTextAreaRootElement"] div textarea ::name placeholder{
+        background-color: white !important;
         color: black;
     }
 
