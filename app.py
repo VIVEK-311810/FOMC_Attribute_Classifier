@@ -403,7 +403,7 @@ st.markdown("""
         color: black;
     }
 
-    div[data-testid="stTextAreaRootElement"] {
+    div[data-testid="stTextAreaRootElement"] div {
         background-color: white !important;
         color: black;
     }
