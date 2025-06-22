@@ -165,7 +165,7 @@ st.markdown("""
 <style>
     .stApp {
         background-color: #ffffff;
-        color: #2c3e50; 
+        color: #2c3e50; /* Added: Set a default dark text color for the entire app */
     }
 
     .main .block-container {
@@ -384,9 +384,6 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
-
-
 
 
 def format_confidence(confidence: float) -> str:
@@ -729,4 +726,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
