@@ -439,58 +439,105 @@ def home_page():
 
     # Introduction Section
     st.markdown("""
+    <style>
+        .stApp {
+            background-color: #ffffff;
+        }
+    
+        .content-section {
+            padding: 2rem 4rem;
+        }
+    
+        .section-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+    
+        .section-block span {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+    
+        .section-text {
+            flex-grow: 1;
+            max-width: 100%;
+        }
+    
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+    
+        .highlight-box h3 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    
+        .highlight-box p {
+            font-size: 1.15rem;
+            color: #34495e;
+            margin: 0.5rem 0;
+        }
+    
+        h2.title {
+            color: #667eea;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+    </style>
+    
     <div class="content-section">
-        <div style="text-align: center; margin-bottom: 2rem;">
-            <h2 style="color: #667eea; font-size: 2.2rem; margin-bottom: 1rem;">
-                🌟 Decoding the Language of Central Banking 🌟
-            </h2>
+        <h2 class="title">🌟 Decoding the Language of Central Banking 🌟</h2>
+    
+        <div class="section-block">
+            <span>💼</span>
+            <div class="section-text">
+                <strong>Federal Open Market Committee (FOMC) statements</strong> represent some of the most consequential communications in global finance, 
+                with each phrase carrying the potential to move markets worth trillions of dollars.
+            </div>
         </div>
-        <div class="intro-text">
-            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-                <span style="font-size: 3rem; margin-right: 1rem;">💼</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 800px;">
-                    <strong>Federal Open Market Committee (FOMC) statements</strong> represent some of the most consequential communications in global finance, 
-                    with each phrase carrying the potential to move markets worth trillions of dollars.
-                </p>
+    
+        <div class="section-block">
+            <span>🧩</span>
+            <div class="section-text">
+                These carefully crafted documents present a <strong>unique challenge</strong> for financial professionals due to their 
+                technical complexity, diplomatic language, and nuanced policy signals that require expert interpretation.
             </div>
-            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-                <span style="font-size: 3rem; margin-right: 1rem;">🧩</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 800px;">
-                    These carefully crafted documents present a <strong>unique challenge</strong> for financial professionals due to their 
-                    technical complexity, diplomatic language, and nuanced policy signals that require expert interpretation.
-                </p>
+        </div>
+    
+        <div class="section-block">
+            <span>🚀</span>
+            <div class="section-text">
+                Our <strong>advanced AI solution</strong> delivers precise, real-time analysis of these critical policy documents, 
+                transforming complex central bank communications into clear, structured economic intelligence.
             </div>
-            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-                <span style="font-size: 3rem; margin-right: 1rem;">🚀</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 800px;">
-                    Our <strong>advanced AI solution</strong> delivers precise, real-time analysis of these critical policy documents, 
-                    transforming complex central bank communications into clear, structured economic intelligence.
-                </p>
+        </div>
+    
+        <div class="section-block">
+            <span>⚡</span>
+            <div class="section-text">
+                The system identifies key policy signals and classifies them according to established financial taxonomies, 
+                enabling <strong>faster and more accurate decision-making</strong> for traders, analysts, and researchers.
             </div>
-            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-                <span style="font-size: 3rem; margin-right: 1rem;">⚡</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 800px;">
-                    The system identifies key policy signals and classifies them according to established financial taxonomies, 
-                    enabling <strong>faster and more accurate decision-making</strong> for traders, analysts, and researchers.
-                </p>
-            </div>
-            <div style="background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); padding: 3rem; border-radius: 15px; margin-top: 2rem;">
-                <div style="text-align: center;">
-                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">🎯 Why This Matters</h3>
-                    <p style="font-size: 1.2rem; color: #34495e; margin-bottom: 1rem;">
-                        <strong>📊 Market Impact:</strong> FOMC statements can trigger billions in trading volume within minutes
-                    </p>
-                    <p style="font-size: 1.2rem; color: #34495e; margin-bottom: 1rem;">
-                        <strong>⏰ Time Sensitivity:</strong> First-mover advantage in interpreting policy changes is crucial
-                    </p>
-                    <p style="font-size: 1.2rem; color: #34495e;">
-                        <strong>🔍 Precision Required:</strong> Subtle language changes can signal major policy shifts
-                    </p>
-                </div>
-            </div>
+        </div>
+    
+        <div class="highlight-box">
+            <h3>🎯 Why This Matters</h3>
+            <p><strong>📊 Market Impact:</strong> FOMC statements can trigger billions in trading volume within minutes</p>
+            <p><strong>⏰ Time Sensitivity:</strong> First-mover advantage in interpreting policy changes is crucial</p>
+            <p><strong>🔍 Precision Required:</strong> Subtle language changes can signal major policy shifts</p>
         </div>
     </div>
     """, unsafe_allow_html=True)
+
 
     # About Section
     st.markdown("""
