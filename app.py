@@ -351,24 +351,24 @@ st.markdown("""
     }
 
     .stDataFrame {
-        background-color: white;
-        color: black;
+        background-color: white !important;
+        color: black !important;
         border-radius:8px;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
 
     .stDataFrame table {
-        background-color: white;
-        color: black;
+        background-color: white !important;
+        color: black !important;
         border-collapse: collapse;
        
         width: 100%;
     }
 
     .stDataFrame th {
-        background-color: white;
-        color: black;
+        background-color: white !important;
+        color: black !important;
         font-weight: bold;
         padding: 12px 15px;
         text-align: left;
@@ -377,7 +377,7 @@ st.markdown("""
 
     .stDataFrame td {
         background-color: white;
-        color: black;
+        color: black !important;
         padding: 10px 15px;
         border-bottom: 1px solid #c1e9e9;
     }
@@ -421,12 +421,6 @@ st.markdown("""
         background-color: white !important;
         color: black;
     }
-    div[data-testid="stDataFrame"] {
-        background-color: white !important;
-        color: black;
-    }
-
-    
 
     .stSelectbox div div{
     background-color: white;
