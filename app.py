@@ -844,13 +844,6 @@ def home_page():
         st.session_state.page = "classification"
         st.experimental_rerun()
 
-    # Footer
-    st.markdown("""
-    <div class="footer-info">
-        <p>&copy; 2025 FOMC Statement Classifier. All rights reserved.</p>
-        <p>Built with ❤️ using Streamlit and Hugging Face Transformers.</p>
-    </div>
-    """, unsafe_allow_html=True)
 
 def classification_page():
     """Display the enhanced classification page"""
@@ -876,6 +869,13 @@ def classification_page():
         <div class="historical-section">
             <h3>🔍 Classify a New FOMC Statement</h3>
         </div>
+        """, unsafe_allow_html=True)
+        st.markdown("""
+        <style>
+        textarea {
+            color: #212529 !important;  /* Bootstrap dark text */
+        }
+        </style>
         """, unsafe_allow_html=True)
         
         user_input = st.text_area(
