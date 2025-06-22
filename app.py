@@ -359,7 +359,7 @@ st.markdown("""
         border: 1px solid #d1d9e6;
         border-radius: 8px;
         box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05), inset -2px -2px 5px rgba(255, 255, 255, 0.8);
-        color: #2c3e50;
+        color: #212529; /* Darker text color for visibility */
         padding: 0.5rem 1rem;
         transition: all 0.3s ease;
     }
@@ -381,23 +381,23 @@ st.markdown("""
     }
 
     .stDataFrame table {
-        background: linear-gradient(to bottom, #f0f2f6, #e6e9ed); /* Whitish linear gradient for table background */
+        background: linear-gradient(to bottom, #e0f7f7, #d0f0f0); /* Light blue/cyan gradient for table background */
         border-collapse: collapse;
         width: 100%;
     }
 
     .stDataFrame th {
-        background: linear-gradient(to right, #e0e2e6, #d6d9de); /* Slightly darker gradient for table headers */
+        background: linear-gradient(to right, #c0e7e7, #b0e0e0); /* Slightly darker blue/cyan gradient for table headers */
         color: #34495e;
         font-weight: bold;
         padding: 12px 15px;
         text-align: left;
-        border-bottom: 2px solid #c3cfe2;
+        border-bottom: 2px solid #a0d0d0; /* Matching border color */
     }
 
     .stDataFrame td {
         padding: 10px 15px;
-        border-bottom: 1px solid #d1d9e6;
+        border-bottom: 1px solid #c1e9e9; /* Lighter matching border */
         color: #2c3e50;
     }
 
@@ -406,7 +406,22 @@ st.markdown("""
     }
 
     .stDataFrame tbody tr:hover {
-        background-color: #e9eff5; /* Light hover effect for rows */
+        background-color: #d9f5f5; /* Light hover effect for rows */
+    }
+
+    /* Historical data expander box */
+    div[data-testid="stExpander"] {
+        background: linear-gradient(135deg, #f0f8ff, #e6f2ff); /* Light blueish-white gradient */
+        border-radius: 12px;
+        padding: 1rem; /* Add some padding inside the box */
+        margin-bottom: 1.5rem; /* Space below the box */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        border: 1px solid #d1e0f0; /* Light border */
+    }
+
+    /* Ensure the content inside the expander also has a transparent background if it defaults to white */
+    div[data-testid="stExpanderDetails"] {
+        background-color: transparent !important;
     }
 
     @media (max-width: 768px) {
