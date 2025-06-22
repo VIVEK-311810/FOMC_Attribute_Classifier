@@ -198,7 +198,7 @@ st.markdown("""
     .subtitle {
         font-size: 1.4rem !important;
         font-weight: 400 !important;
-        opacity: 0.95;
+        margin: 0 auto;
         max-width: 800px;
         line-height: 1.6;
     }
