@@ -5,7 +5,6 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import os
 from typing import Dict, List, Optional, Any
 import logging
-import usestate from react
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
