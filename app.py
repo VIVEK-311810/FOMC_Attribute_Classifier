@@ -588,10 +588,12 @@ def home_page():
             Our model identifies key economic signals across <strong>six critical dimensions</strong>:
         </div>
         <div class="attributes-grid" >
-            <div class="attribute-card" onclick={()=>window.location.href="https://huggingface.co/Vk311810/fomc-inflation-classifier"}>
+            <a href="https://huggingface.co/Vk311810/fomc-inflation-classifier">
+            <div class="attribute-card" >
                 <div class="attribute-icon">📊</div>
                 <div class="attribute-title">Sentiment</div>
             </div>
+            </a>
             <div class="attribute-card">
                 <div class="attribute-icon">📈</div>
                 <div class="attribute-title">Economic Growth</div>
