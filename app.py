@@ -974,7 +974,7 @@ if __name__ == "__main__":
         with st.spinner("🚀 Loading AI models and historical data..."):
             load_models()
             if load_excel_data():
-                st.success("✅ Models and data loaded successfully!")
+                st.toast("✅ Models and data loaded successfully!")
             else:
                 st.error("❌ Failed to load historical data. Please check the Excel file path.")
             st.session_state.models_loaded = True
