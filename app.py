@@ -408,6 +408,11 @@ st.markdown("""
         color: black;
     }
 
+    div[data-testid="stTextAreaRootElement"] div textarea {
+      
+        color: black;
+    }
+
 
     @media (max-width: 768px) {
         .main-title {
