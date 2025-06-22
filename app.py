@@ -164,6 +164,13 @@ st.set_page_config(
 # Enhanced Custom CSS for styling with white background and improved design
 st.markdown("""
 <style>
+
+    input{
+        background-color: white;
+        color: dark;
+    }
+    
+    }
     .stApp {
         background-color: #ffffff;
         color: #2c3e50; /* Set a default dark text color for the entire app */
@@ -418,7 +425,7 @@ st.markdown("""
         color: black;
     }
 
-    .stSelectbox div{
+    .stSelectbox div div{
     background-color: white;
     color: black;
     }
