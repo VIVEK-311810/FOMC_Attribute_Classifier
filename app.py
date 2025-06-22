@@ -350,20 +350,22 @@ st.markdown("""
         margin-bottom: 0;
     }
 
-    /* Force white background for all DataFrames */
-    div[data-testid="stDataFrame"] div {
+    .stDataFrame {
         background-color: white !important;
         color: black !important;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
     
-    div[data-testid="stDataFrame"] table {
+    .stDataFrame table {
         background-color: white !important;
         color: black !important;
         border-collapse: collapse;
         width: 100%;
     }
     
-    div[data-testid="stDataFrame"] th {
+    .stDataFrame th {
         background-color: white !important;
         color: black !important;
         font-weight: bold;
@@ -372,29 +374,21 @@ st.markdown("""
         border-bottom: 2px solid #a0d0d0;
     }
     
-    div[data-testid="stDataFrame"] td {
+    .stDataFrame td {
         background-color: white !important;
         color: black !important;
         padding: 10px 15px;
         border-bottom: 1px solid #c1e9e9;
     }
     
-    div[data-testid="stDataFrame"] tr:last-child td {
+    .stDataFrame tr:last-child td {
         border-bottom: none;
     }
     
-    div[data-testid="stDataFrame"] tbody tr:hover {
-        background-color: #f0f8ff !important;
+    .stDataFrame tbody tr:hover {
+        background-color: #f0f8ff !important;  /* Light blue hover color */
     }
-    
-    /* Additional container styling */
-    div[data-testid="stDataFrame"] {
-        background-color: white !important;
-        border-radius: 8px !important;
-        overflow: hidden !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
-        padding: 1px !important; /* Helps contain the table */
-    }
+
     div[data-testid="stExpander"] {
         background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);      
         border-radius: 12px;
