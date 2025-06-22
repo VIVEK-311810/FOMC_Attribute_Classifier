@@ -396,9 +396,7 @@ st.markdown("""
 
     div[data-testid="stExpanderDetails"] {
         background-color: transparent !important;
-    }  
-
-    
+    }
 
     @media (max-width: 768px) {
         .main-title {
