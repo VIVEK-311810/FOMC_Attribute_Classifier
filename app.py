@@ -353,19 +353,18 @@ st.markdown("""
     .stDataFrame {
         background-color: white !important;
         color: black !important;
-        border-radius:8px;
+        border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
-
+    
     .stDataFrame table {
         background-color: white !important;
         color: black !important;
         border-collapse: collapse;
-       
         width: 100%;
     }
-
+    
     .stDataFrame th {
         background-color: white !important;
         color: black !important;
@@ -374,20 +373,20 @@ st.markdown("""
         text-align: left;
         border-bottom: 2px solid #a0d0d0;
     }
-
+    
     .stDataFrame td {
-        background-color: white;
+        background-color: white !important;
         color: black !important;
         padding: 10px 15px;
         border-bottom: 1px solid #c1e9e9;
     }
-
+    
     .stDataFrame tr:last-child td {
         border-bottom: none;
     }
-
+    
     .stDataFrame tbody tr:hover {
-        background-color: #d9f5f5;
+        background-color: #f0f8ff !important;  /* Light blue hover color */
     }
 
     div[data-testid="stExpander"] {
