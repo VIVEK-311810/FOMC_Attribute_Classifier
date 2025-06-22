@@ -704,6 +704,13 @@ def main():
                 load_excel_data()
                 st.session_state.initialized = True
                 st.toast("✅ Models and data loaded successfully!")
+                st.markdown("""
+                <style>
+                    .stSpinner > div > div {
+                        color: black !important;
+                    }
+                </style>
+                """, unsafe_allow_html=True)
             except Exception as e:
                 st.error(f"❌ Initialization failed: {str(e)}")
                 return
