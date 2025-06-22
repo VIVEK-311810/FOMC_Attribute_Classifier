@@ -340,18 +340,16 @@ st.markdown("""
         border-radius: 2px;
     }
 
-
     .stMarkdown {
         margin-bottom: 0;
     }
 
-    /* Custom styles for select boxes and text area */
     .stSelectbox > div > div, .stTextArea > div > div {
-        background: linear-gradient(to right, #f0f2f6, #e6e9ed); /* Whitish linear gradient */
+        background: linear-gradient(to right, #f0f2f6, #e6e9ed);
         border: 1px solid #d1d9e6;
         border-radius: 8px;
         box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05), inset -2px -2px 5px rgba(255, 255, 255, 0.8);
-        color: #212529; /* Darker text color for visibility */
+        color: #212529;
         padding: 0.5rem 1rem;
         transition: all 0.3s ease;
     }
@@ -365,31 +363,30 @@ st.markdown("""
         box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
     }
 
-    /* Style for the table (Label Mappings Reference) */
     .stDataFrame {
         border-radius: 8px;
-        overflow: hidden; /* Ensures border-radius applies to content */
+        overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
 
     .stDataFrame table {
-        background: linear-gradient(to bottom, #e0f7f7, #d0f0f0); /* Light blue/cyan gradient for table background */
+        background: linear-gradient(to bottom, #e0f7f7, #d0f0f0);
         border-collapse: collapse;
         width: 100%;
     }
 
     .stDataFrame th {
-        background: linear-gradient(to right, #c0e7e7, #b0e0e0); /* Slightly darker blue/cyan gradient for table headers */
+        background: linear-gradient(to right, #c0e7e7, #b0e0e0);
         color: #34495e;
         font-weight: bold;
         padding: 12px 15px;
         text-align: left;
-        border-bottom: 2px solid #a0d0d0; /* Matching border color */
+        border-bottom: 2px solid #a0d0d0;
     }
 
     .stDataFrame td {
         padding: 10px 15px;
-        border-bottom: 1px solid #c1e9e9; /* Lighter matching border */
+        border-bottom: 1px solid #c1e9e9;
         color: #2c3e50;
     }
 
@@ -398,20 +395,18 @@ st.markdown("""
     }
 
     .stDataFrame tbody tr:hover {
-        background-color: #d9f5f5; /* Light hover effect for rows */
+        background-color: #d9f5f5;
     }
 
-    /* Historical data expander box */
     div[data-testid="stExpander"] {
-        background: linear-gradient(135deg, #f0f8ff, #e6f2ff); /* Light blueish-white gradient */
+        background: linear-gradient(135deg, #f0f8ff, #e6f2ff);
         border-radius: 12px;
-        padding: 1rem; /* Add some padding inside the box */
-        margin-bottom: 1.5rem; /* Space below the box */
+        padding: 1rem;
+        margin-bottom: 1.5rem;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        border: 1px solid #d1e0f0; /* Light border */
+        border: 1px solid #d1e0f0;
     }
 
-    /* Ensure the content inside the expander also has a transparent background if it defaults to white */
     div[data-testid="stExpanderDetails"] {
         background-color: transparent !important;
     }
@@ -444,6 +439,8 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
+
 
 
 def format_confidence(confidence: float) -> str:
