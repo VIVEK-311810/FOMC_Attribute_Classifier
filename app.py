@@ -355,14 +355,14 @@ st.markdown("""
     }
 
     .stDataFrame {
-        background-color: white;
-        color: black;
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
 
     .stDataFrame table {
+        background-color: white;
+        color: black;
         border-collapse: collapse;
         width: 100%;
     }
