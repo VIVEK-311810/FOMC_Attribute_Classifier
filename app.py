@@ -397,9 +397,8 @@ st.markdown("""
         background-color: transparent !important;
     }
 
-    .stSelectbox{
-    background-color: white !important;
-    color: black;
+    div[data-testid="stMarkdownContainer"] {
+        background-color: transparent !important;
     }
 
     @media (max-width: 768px) {
