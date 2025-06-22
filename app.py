@@ -454,7 +454,6 @@ def home_page():
                     with each phrase carrying the potential to move markets worth trillions of dollars.
                 </p>
             </div>
-
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">🧩</span>
                 <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
@@ -462,7 +461,6 @@ def home_page():
                     technical complexity, diplomatic language, and nuanced policy signals that require expert interpretation.
                 </p>
             </div>
-
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">🚀</span>
                 <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
@@ -470,7 +468,6 @@ def home_page():
                     transforming complex central bank communications into clear, structured economic intelligence.
                 </p>
             </div>
-
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">⚡</span>
                 <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
@@ -478,7 +475,6 @@ def home_page():
                     enabling <strong>faster and more accurate decision-making</strong> for traders, analysts, and researchers.
                 </p>
             </div>
-
             <div style="background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
                 <div style="text-align: center;">
                     <h3 style="color: #2c3e50; margin-bottom: 1rem;">🎯 Why This Matters</h3>
