@@ -232,7 +232,7 @@ st.markdown("""
     }
 
     .about-title {
-        color: #2c3e50;
+        color: #34495e;
         font-size: 2rem;
         font-weight: 700;
         text-align: center;
