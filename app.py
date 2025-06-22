@@ -446,7 +446,6 @@ def home_page():
                 🌟 Decoding the Language of Central Banking 🌟
             </h2>
         </div>
-        
         <div class="intro-text">
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">💼</span>
