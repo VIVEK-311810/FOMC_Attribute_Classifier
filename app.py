@@ -245,7 +245,6 @@ st.markdown("""
         font-size: 1.1rem;
         line-height: 1.7;
         color: #34495e;
-        text-align: center;
         margin-bottom: 1.5rem;
     }
 
