@@ -238,12 +238,32 @@ def display_classification_results(results: Dict):
 
 def home_page():
     """Display the home page"""
-    st.markdown("<div class=\"main-header\" style='text-align: center; padding: 2rem 0;'>", unsafe_allow_html=True)
-    
-    # Header image placeholder (you can add an actual image here)
-    st.markdown("# 🏛️ FOMC Statement Classifier")
-    st.markdown("### A financial-domain BERT model for Federal Reserve (FOMC) document analysis.")
-    
+    st.markdown("""
+    <style>
+        .centered-header {
+            text-align: center;
+            margin-top: 0;
+        }
+        .main-title {
+            font-size: 3em !important;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            font-size: 1.5em !important;
+            margin-top: 0 !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+      
+      # Centered main header
+    st.markdown("""
+    <div class="centered-header">
+        <h1 class="main-title">🏛️ FOMC Statement Classifier</h1>
+        <h3 class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</h3>
+    </div>
+    """, unsafe_allow_html=True)
+  
     st.markdown("""
     <div style='text-align: center; padding: 2rem 0;'>
         <h3>
