@@ -264,11 +264,9 @@ def home_page():
     
     st.markdown("---")
     
-    col1= st.columns([1])
-    with col1:
-        if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
-            st.session_state.page = "classification"
-            st.rerun()
+    if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
+    st.session_state.page = "classification"
+    st.rerun()
     
     st.markdown("</div>", unsafe_allow_html=True)
 
