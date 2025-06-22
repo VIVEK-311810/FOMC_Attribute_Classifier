@@ -165,7 +165,7 @@ st.markdown("""
 <style>
     .stApp {
         background-color: #ffffff;
-        color: #2c3e50; /* Added: Set a default dark text color for the entire app */
+        color: #2c3e50; /* Set a default dark text color for the entire app */
     }
 
     .main .block-container {
@@ -541,10 +541,11 @@ def home_page():
     """, unsafe_allow_html=True)
 
     # Call-to-Action Button
-  
-    if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
-        st.session_state.page = "classification"
-        st.rerun()
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
+            st.session_state.page = "classification"
+            st.rerun()
 
     # Footer
     st.markdown("""
@@ -573,6 +574,7 @@ def classification_page():
         
         # Historical data section
         with st.expander("📊 Select from Historical Data", expanded=False):
+            st.markdown('<div class="historical-section">', unsafe_allow_html=True)
             
             # Get available years
             if st.session_state.df is not None:
