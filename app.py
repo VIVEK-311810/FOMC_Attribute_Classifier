@@ -423,6 +423,12 @@ st.markdown("""
     color: black;
     }
 
+    
+    .stSelectbox div div div div input{
+    background-color: white;
+    color: black;
+    }
+
     @media (max-width: 768px) {
         .main-title {
             font-size: 2.4rem !important;
