@@ -161,36 +161,224 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for styling
+# Enhanced Custom CSS for styling with white background and improved design
 st.markdown("""
 <style>
+    /* Main app background */
+    .stApp {
+        background-color: #ffffff;
+    }
+    
+    /* Main container styling */
+    .main .block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Header styling */
     .main-header {
         text-align: center;
-        padding: 2rem 0;
+        padding: 3rem 0 2rem 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 20px;
+        margin-bottom: 3rem;
+        color: white;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
+    
+    .main-title {
+        font-size: 3.5rem !important;
+        font-weight: 800 !important;
+        margin-bottom: 1rem !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .subtitle {
+        font-size: 1.4rem !important;
+        font-weight: 400 !important;
+        opacity: 0.95;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+    
+    /* Content sections */
+    .content-section {
+        background: #ffffff;
+        padding: 2.5rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        border: 1px solid #e8e8e8;
+    }
+    
+    .intro-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #2c3e50;
+        text-align: center;
+        margin: 2rem auto;
+        max-width: 900px;
+    }
+    
+    /* About section styling */
+    .about-section {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 3rem;
+        border-radius: 20px;
+        margin: 3rem 0;
+    }
+    
+    .about-title {
+        color: #2c3e50;
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .about-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #34495e;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    /* Attributes grid */
+    .attributes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .attribute-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border: 2px solid #e8e8e8;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .attribute-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        border-color: #667eea;
+    }
+    
+    .attribute-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .attribute-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin: 0;
+    }
+    
+    /* Button styling */
+    .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 1rem 3rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+        margin: 2rem auto;
+        display: block;
+        width: 300px;
+    }
+    
+    .stButton > button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+    }
+    
+    /* Classification results styling */
     .classification-result {
-        background-color: #f0f2f6;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        margin: 0.5rem 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 1rem 0;
+        border-left: 4px solid #667eea;
     }
+    
     .confidence-high {
         color: #28a745;
         font-weight: bold;
     }
+    
     .confidence-medium {
         color: #ffc107;
         font-weight: bold;
     }
+    
     .confidence-low {
         color: #dc3545;
         font-weight: bold;
     }
+    
+    /* Historical section styling */
     .historical-section {
-        background-color: #f8f9fa;
-        padding: 1rem;
-        border-radius: 0.5rem;
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 12px;
         margin: 1rem 0;
+        border: 1px solid #dee2e6;
+    }
+    
+    /* Divider styling */
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        margin: 3rem 0;
+        border-radius: 2px;
+    }
+    
+    /* Footer styling */
+    .footer-info {
+        text-align: center;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 15px;
+        margin-top: 3rem;
+        color: #6c757d;
+        font-size: 1rem;
+    }
+    
+    /* Remove default streamlit styling */
+    .stMarkdown {
+        margin-bottom: 0;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .main-title {
+            font-size: 2.5rem !important;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem !important;
+        }
+        
+        .content-section {
+            padding: 1.5rem;
+        }
+        
+        .about-section {
+            padding: 2rem;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
@@ -237,81 +425,91 @@ def display_classification_results(results: Dict):
                     st.markdown(f"Confidence: {format_confidence(confidence)}", unsafe_allow_html=True)
 
 def home_page():
-    """Display the home page"""
+    """Display the enhanced home page"""
+    
+    # Main Header Section
     st.markdown("""
-    <style>
-        .centered-header {
-            text-align: center;
-            margin-top: 0;
-        }
-        .main-title {
-            font-size: 3em !important;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        .subtitle {
-            font-size: 2em !important;
-            margin-top: 0 !important;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-
-    # Centered main header
-    st.markdown("""
-    <div class="centered-header">
+    <div class="main-header">
         <h1 class="main-title">🏛️ FOMC Statement Classifier</h1>
-        <h2 class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</h2>
+        <p class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</p>
     </div>
     """, unsafe_allow_html=True)
 
+    # Introduction Section
     st.markdown("""
-    <div style="text-align: center; margin: 0 auto;">
-        <p style="font-size: 1.45em; line-height: 1.8; margin-bottom: 1.5rem;">
-            Federal Open Market Committee (FOMC) statements represent some of the most consequential communications in global finance, 
-            with each phrase carrying the potential to move markets. These carefully crafted documents present a unique challenge 
-            for financial professionals due to their technical complexity and nuanced policy signals.
-        </p>
-        <p style="font-size: 1.45em; line-height: 1.8;">
-            Our advanced AI solution delivers precise, real-time analysis of these critical policy documents, 
-            transforming complex central bank communications into clear, structured economic intelligence. 
-            The system identifies key policy signals and classifies them according to established financial taxonomies, 
-            enabling faster and more accurate decision-making.
-        </p>
+    <div class="content-section">
+        <div class="intro-text">
+            <p>
+                Federal Open Market Committee (FOMC) statements represent some of the most consequential communications in global finance, 
+                with each phrase carrying the potential to move markets. These carefully crafted documents present a unique challenge 
+                for financial professionals due to their technical complexity and nuanced policy signals.
+            </p>
+            <p>
+                Our advanced AI solution delivers precise, real-time analysis of these critical policy documents, 
+                transforming complex central bank communications into clear, structured economic intelligence. 
+                The system identifies key policy signals and classifies them according to established financial taxonomies, 
+                enabling faster and more accurate decision-making.
+            </p>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("---")
-    
-    # Section: About the AI Tool
-    st.subheader("🧠 About the AI Tool")
-    
+    # About the AI Tool Section
     st.markdown("""
-    This tool is powered by a **fine-tuned FinBERT model**, a variant of Google's BERT 
-    specifically pre-trained on a vast corpus of financial text. We further specialized it 
-    using annotated FOMC statements to understand the unique nuances of central bank language.
-    
-    Our model identifies key economic signals across **six critical dimensions**:
+    <div class="about-section">
+        <h2 class="about-title">🧠 About the AI Tool</h2>
+        <div class="about-text">
+            This tool is powered by a <strong>fine-tuned FinBERT model</strong>, a variant of Google's BERT 
+            specifically pre-trained on a vast corpus of financial text. We further specialized it 
+            using annotated FOMC statements to understand the unique nuances of central bank language.
+        </div>
+        <div class="about-text">
+            Our model identifies key economic signals across <strong>six critical dimensions</strong>:
+        </div>
+        
+        <div class="attributes-grid">
+            <div class="attribute-card">
+                <div class="attribute-icon">📊</div>
+                <div class="attribute-title">Sentiment</div>
+            </div>
+            <div class="attribute-card">
+                <div class="attribute-icon">📈</div>
+                <div class="attribute-title">Economic Growth</div>
+            </div>
+            <div class="attribute-card">
+                <div class="attribute-icon">👷</div>
+                <div class="attribute-title">Employment Growth</div>
+            </div>
+            <div class="attribute-card">
+                <div class="attribute-icon">💹</div>
+                <div class="attribute-title">Inflation</div>
+            </div>
+            <div class="attribute-card">
+                <div class="attribute-icon">🦅</div>
+                <div class="attribute-title">Medium Term Rate</div>
+            </div>
+            <div class="attribute-card">
+                <div class="attribute-icon">⚖️</div>
+                <div class="attribute-title">Policy Rate</div>
+            </div>
+        </div>
+    </div>
     """, unsafe_allow_html=True)
-    
-    # Displaying the attributes with icons
-    col_attr1, col_attr2, col_attr3 = st.columns(3)
-    with col_attr1:
-        st.markdown("**📊 Sentiment**")
-        st.markdown("**📈 Economic Growth**")
-    with col_attr2:
-        st.markdown("**👷 Employment Growth**")
-        st.markdown("**💹 Inflation**")
-    with col_attr3:
-        st.markdown("**🦅 Medium Term Rate**")
-        st.markdown("**⚖️ Policy Rate**")
-    
-    st.markdown("---")
-    
-    if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
-        st.session_state.page = "classification"
-        st.rerun()
-    
-    st.markdown("</div>", unsafe_allow_html=True)
+
+    # Call to Action
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
+            st.session_state.page = "classification"
+            st.rerun()
+
+    # Footer Information
+    st.markdown("""
+    <div class="footer-info">
+        <strong>Project by:</strong> Vivek Maddula<br>
+        <strong>Research Guide:</strong> Dr. Brindha
+    </div>
+    """, unsafe_allow_html=True)
 
 def classification_page():
     """Display the classification page"""
@@ -331,6 +529,8 @@ def classification_page():
         
         # Historical data section
         with st.expander("📊 Select from Historical Data", expanded=False):
+            st.markdown('<div class="historical-section">', unsafe_allow_html=True)
+            
             # Get available years
             if st.session_state.df is not None:
                 years = sorted(st.session_state.df["year"].unique())
@@ -460,7 +660,7 @@ def main():
                 load_models()
                 load_excel_data()
                 st.session_state.initialized = True
-                st.toast("✅ Models and data loaded successfully!", icon="✅")
+                st.success("✅ Models and data loaded successfully!")
             except Exception as e:
                 st.error(f"❌ Initialization failed: {str(e)}")
                 return
@@ -473,3 +673,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
