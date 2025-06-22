@@ -263,17 +263,11 @@ def home_page():
     
     st.markdown("---")
     
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
+    col1= st.columns([1])
+    with col1:
         if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
             st.session_state.page = "classification"
             st.rerun()
-    
-    st.markdown("---")
-    st.markdown("""
-    **Project by:** Vivek Maddula  
-    **Research Guide:** Dr. Brindha
-    """, unsafe_allow_html=True)
     
     st.markdown("</div>", unsafe_allow_html=True)
 
