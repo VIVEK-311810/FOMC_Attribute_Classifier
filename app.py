@@ -386,7 +386,9 @@ st.markdown("""
     }
 
     div[data-testid="stExpander"] {
-        background: linear-gradient(135deg, #f0f8ff, #e6f2ff);
+        background-color:white;
+        color:black;
+        
         border-radius: 12px;
         padding: 1rem;
         margin-bottom: 1.5rem;
