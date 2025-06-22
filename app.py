@@ -165,6 +165,7 @@ st.markdown("""
 <style>
     .stApp {
         background-color: #ffffff;
+        color: #2c3e50; 
     }
 
     .main .block-container {
