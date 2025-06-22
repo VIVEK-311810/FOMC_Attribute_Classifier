@@ -424,7 +424,7 @@ st.markdown("""
     }
 
     
-    .stSelectbox div div div div input{
+    .stSelectbox div div div div::input{
     background-color: white;
     color: black;
     }
