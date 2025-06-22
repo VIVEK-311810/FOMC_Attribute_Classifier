@@ -395,7 +395,7 @@ st.markdown("""
     }
 
     div[data-testid="stExpanderDetails"] {
-        background-color: transparent !important;
+        background-color: white !important;
     }
 
     @media (max-width: 768px) {
