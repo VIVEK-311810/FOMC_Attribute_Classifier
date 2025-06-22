@@ -353,15 +353,22 @@ st.markdown("""
         margin-bottom: 0;
     }
 
-    /* Custom styles for select boxes and text area */
+    /* Custom styles for select boxes and text area containers */
     .stSelectbox > div > div, .stTextArea > div > div {
         background: linear-gradient(to right, #f0f2f6, #e6e9ed); /* Whitish linear gradient */
         border: 1px solid #d1d9e6;
         border-radius: 8px;
         box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05), inset -2px -2px 5px rgba(255, 255, 255, 0.8);
-        color: #212529; /* Darker text color for visibility */
         padding: 0.5rem 1rem;
         transition: all 0.3s ease;
+    }
+
+    /* Ensure text within selectbox and textarea is dark */
+    .stSelectbox > div > div > div > span, /* For the selected value in selectbox */
+    .stSelectbox > div > div > div > div > div > span, /* For options in the dropdown list */
+    .stSelectbox > div > div > div > div > div > div > span, /* More specific for options */
+    textarea { /* For the text area content */
+        color: #212529 !important; /* Darker text color for visibility */
     }
 
     .stSelectbox > div > div:hover, .stTextArea > div > div:hover {
@@ -798,38 +805,3 @@ def classification_page():
         
         df_mappings = pd.DataFrame(mapping_data)
         st.dataframe(df_mappings, use_container_width=True, hide_index=True)
-
-def main():
-    """Main application logic"""
-    # Initialize session state
-    if "page" not in st.session_state:
-        st.session_state.page = "home"
-
-    st.markdown("""
-    <style>
-        .stSpinner > div > div {
-            color: black !important;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-    # Initialize models and data only once
-    if "initialized" not in st.session_state:
-        with st.spinner("🔄 Loading models and data..."):
-            try:
-                load_models()
-                load_excel_data()
-                st.session_state.initialized = True
-                st.toast("✅ Models and data loaded successfully!")
-                
-            except Exception as e:
-                st.error(f"❌ Initialization failed: {str(e)}")
-                return
-
-    # Route to appropriate page
-    if st.session_state.page == "home":
-        home_page()
-    elif st.session_state.page == "classification":
-        classification_page()
-
-if __name__ == "__main__":
-    main()
