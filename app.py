@@ -353,7 +353,7 @@ st.markdown("""
     .stDataFrame {
         background-color: white;
         color: black;
-        
+        border-radius:8px;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
@@ -362,6 +362,7 @@ st.markdown("""
         background-color: white;
         color: black;
         border-collapse: collapse;
+       
         width: 100%;
     }
 
@@ -417,10 +418,7 @@ st.markdown("""
         color: black;
     }
 
-    div[data-testid="stTextAreaRootElement"] div textarea::placeholder{
-        background-color: white !important;
-        color: black;
-    }
+    
 
     .stSelectbox div div{
     background-color: white;
