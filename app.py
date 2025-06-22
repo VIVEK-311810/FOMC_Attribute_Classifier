@@ -265,7 +265,7 @@ def home_page():
     """, unsafe_allow_html=True)
 
     st.markdown("""
-    <div style="text-align: center; padding: 1.5rem 0; max-width: 800px; margin: 0 auto;">
+    <div style="text-align: center; margin: 0 auto;">
         <p style="font-size: 1.25em; line-height: 1.8; color: #333; margin-bottom: 1.5rem;">
             Federal Open Market Committee (FOMC) statements represent some of the most consequential communications in global finance, 
             with each phrase carrying the potential to move markets. These carefully crafted documents present a unique challenge 
