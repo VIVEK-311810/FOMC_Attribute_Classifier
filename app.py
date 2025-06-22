@@ -449,28 +449,28 @@ def home_page():
         <div class="intro-text">
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">💼</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
+                <p style="font-size: 1.3rem; margin: 0; max-width: 800px;">
                     <strong>Federal Open Market Committee (FOMC) statements</strong> represent some of the most consequential communications in global finance, 
                     with each phrase carrying the potential to move markets worth trillions of dollars.
                 </p>
             </div>
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">🧩</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
+                <p style="font-size: 1.3rem; margin: 0; max-width: 800px;">
                     These carefully crafted documents present a <strong>unique challenge</strong> for financial professionals due to their 
                     technical complexity, diplomatic language, and nuanced policy signals that require expert interpretation.
                 </p>
             </div>
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">🚀</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
+                <p style="font-size: 1.3rem; margin: 0; max-width: 800px;">
                     Our <strong>advanced AI solution</strong> delivers precise, real-time analysis of these critical policy documents, 
                     transforming complex central bank communications into clear, structured economic intelligence.
                 </p>
             </div>
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">⚡</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
+                <p style="font-size: 1.3rem; margin: 0; max-width: 800px;">
                     The system identifies key policy signals and classifies them according to established financial taxonomies, 
                     enabling <strong>faster and more accurate decision-making</strong> for traders, analysts, and researchers.
                 </p>
