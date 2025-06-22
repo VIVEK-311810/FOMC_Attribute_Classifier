@@ -399,7 +399,7 @@ st.markdown("""
     }  
 
     div[data-testid="stMarkdownContainer"] {
-    background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+    background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%) !important;
     }
   
     .stSelectbox div{
