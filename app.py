@@ -201,7 +201,7 @@ st.markdown("""
     }
 
     .content-section {
-        background: #ffffff;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         padding: 2.5rem;
         border-radius: 15px;
         margin: 2rem 0;
@@ -431,7 +431,7 @@ def home_page():
     st.markdown("""
     <div class="main-header">
         <h1 class="main-title">🏛️ FOMC Statement Classifier</h1>
-        <h3 class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</h3>
+        <h3 class="subtitle">A financial BERT model for Federal Reserve (FOMC) document analysis.</h3>
     </div>
     """, unsafe_allow_html=True)
 
