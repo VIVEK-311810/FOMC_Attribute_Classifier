@@ -434,7 +434,7 @@ def home_page():
     st.markdown("""
     <div class="main-header">
         <h1 class="main-title">🏛️ FOMC Statement Classifier</h1>
-        <h2 class="main-title">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</h2>
+        <h3 class="main-title">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</h3>
     </div>
     """, unsafe_allow_html=True)
 
