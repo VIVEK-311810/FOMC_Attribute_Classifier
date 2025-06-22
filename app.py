@@ -266,12 +266,12 @@ def home_page():
 
     st.markdown("""
     <div style="text-align: center; margin: 0 auto;">
-        <p style="font-size: 1.25em; line-height: 1.8; color: #333; margin-bottom: 1.5rem;">
+        <p style="font-size: 1.45em; line-height: 1.8; margin-bottom: 1.5rem;">
             Federal Open Market Committee (FOMC) statements represent some of the most consequential communications in global finance, 
             with each phrase carrying the potential to move markets. These carefully crafted documents present a unique challenge 
             for financial professionals due to their technical complexity and nuanced policy signals.
         </p>
-        <p style="font-size: 1.25em; line-height: 1.8; color: #333;">
+        <p style="font-size: 1.45em; line-height: 1.8;">
             Our advanced AI solution delivers precise, real-time analysis of these critical policy documents, 
             transforming complex central bank communications into clear, structured economic intelligence. 
             The system identifies key policy signals and classifies them according to established financial taxonomies, 
@@ -286,17 +286,14 @@ def home_page():
     # Section: About the AI Tool
     st.subheader("🧠 About the AI Tool")
     
-    col_about1, col_about2 = st.columns([1, 2])
-    with col_about1:
-        st.image("https://i.imgur.com/your_image_here.png", caption="AI at Work (Placeholder)", use_container_width=True) # Replace with a relevant image URL
-    with col_about2:
-        st.markdown("""
-        This tool is powered by a **fine-tuned FinBERT model**, a variant of Google's BERT 
-        specifically pre-trained on a vast corpus of financial text. We further specialized it 
-        using annotated FOMC statements to understand the unique nuances of central bank language.
-        
-        Our model identifies key economic signals across **six critical dimensions**:
-        """, unsafe_allow_html=True)
+
+    st.markdown("""
+    This tool is powered by a **fine-tuned FinBERT model**, a variant of Google's BERT 
+    specifically pre-trained on a vast corpus of financial text. We further specialized it 
+    using annotated FOMC statements to understand the unique nuances of central bank language.
+    
+    Our model identifies key economic signals across **six critical dimensions**:
+    """, unsafe_allow_html=True)
     
     # Displaying the attributes with icons
     col_attr1, col_attr2, col_attr3 = st.columns(3)
