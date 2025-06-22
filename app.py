@@ -6,6 +6,7 @@ import os
 from typing import Dict, List, Optional, Any
 import logging
 
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -192,7 +193,6 @@ st.markdown("""
         font-weight: 800 !important;
         margin-bottom: 1rem !important;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        color: white !important;
     }
     
     .subtitle {
@@ -202,7 +202,6 @@ st.markdown("""
         max-width: 800px;
         margin: 0 auto;
         line-height: 1.6;
-        color: white !important;
     }
     
     /* Content sections */
@@ -218,18 +217,10 @@ st.markdown("""
     .intro-text {
         font-size: 1.2rem;
         line-height: 1.8;
-        color: #2c3e50 !important;
+        color: #2c3e50;
         text-align: center;
         margin: 2rem auto;
         max-width: 900px;
-    }
-    
-    .intro-text p {
-        color: #2c3e50 !important;
-    }
-    
-    .intro-text strong {
-        color: #1a1a1a !important;
     }
     
     /* About section styling */
@@ -241,7 +232,7 @@ st.markdown("""
     }
     
     .about-title {
-        color: #2c3e50 !important;
+        color: #2c3e50;
         font-size: 2rem;
         font-weight: 700;
         text-align: center;
@@ -251,7 +242,7 @@ st.markdown("""
     .about-text {
         font-size: 1.1rem;
         line-height: 1.7;
-        color: #34495e !important;
+        color: #34495e;
         text-align: center;
         margin-bottom: 2rem;
     }
@@ -288,14 +279,14 @@ st.markdown("""
     .attribute-title {
         font-size: 1.1rem;
         font-weight: 600;
-        color: #2c3e50 !important;
+        color: #2c3e50;
         margin: 0;
     }
     
     /* Button styling */
     .stButton > button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white !important;
+        color: white;
         border: none;
         border-radius: 50px;
         padding: 1rem 3rem;
@@ -323,17 +314,17 @@ st.markdown("""
     }
     
     .confidence-high {
-        color: #28a745 !important;
+        color: #28a745;
         font-weight: bold;
     }
     
     .confidence-medium {
-        color: #ffc107 !important;
+        color: #ffc107;
         font-weight: bold;
     }
     
     .confidence-low {
-        color: #dc3545 !important;
+        color: #dc3545;
         font-weight: bold;
     }
     
@@ -362,21 +353,13 @@ st.markdown("""
         background: #f8f9fa;
         border-radius: 15px;
         margin-top: 3rem;
-        color: #6c757d !important;
+        color: #6c757d;
         font-size: 1rem;
     }
     
-    /* Fix text colors for all elements */
+    /* Remove default streamlit styling */
     .stMarkdown {
-        color: #2c3e50 !important;
-    }
-    
-    .stMarkdown p {
-        color: #2c3e50 !important;
-    }
-    
-    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4, .stMarkdown h5, .stMarkdown h6 {
-        color: #2c3e50 !important;
+        margin-bottom: 0;
     }
     
     /* Responsive design */
@@ -449,7 +432,7 @@ def home_page():
     <div class="main-header">
         <h1 class="main-title">🏛️ FOMC Statement Classifier</h1>
         <div style="text-align: center;">
-            <p class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</p>
+            <h1 class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</h1>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -464,33 +447,33 @@ def home_page():
         </div>
         
         <div class="intro-text">
-            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">💼</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 600px; color: #2c3e50;">
+                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
                     <strong>Federal Open Market Committee (FOMC) statements</strong> represent some of the most consequential communications in global finance, 
                     with each phrase carrying the potential to move markets worth trillions of dollars.
                 </p>
             </div>
             
-            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">🧩</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 600px; color: #2c3e50;">
+                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
                     These carefully crafted documents present a <strong>unique challenge</strong> for financial professionals due to their 
                     technical complexity, diplomatic language, and nuanced policy signals that require expert interpretation.
                 </p>
             </div>
             
-            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">🚀</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 600px; color: #2c3e50;">
+                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
                     Our <strong>advanced AI solution</strong> delivers precise, real-time analysis of these critical policy documents, 
                     transforming complex central bank communications into clear, structured economic intelligence.
                 </p>
             </div>
             
-            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">⚡</span>
-                <p style="font-size: 1.3rem; margin: 0; max-width: 600px; color: #2c3e50;">
+                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
                     The system identifies key policy signals and classifies them according to established financial taxonomies, 
                     enabling <strong>faster and more accurate decision-making</strong> for traders, analysts, and researchers.
                 </p>
@@ -585,132 +568,147 @@ def classification_page():
     left_col, right_col = st.columns([1, 1])
     
     with left_col:
-        st.subheader("📝 Input Statement")
+        st.subheader("📝 Input")
         
-        # Text input options
-        input_method = st.radio(
-            "Choose input method:",
-            ["Type/Paste Text", "Select from Historical Data"],
-            horizontal=True
+        # Historical data section
+        with st.expander("📊 Select from Historical Data", expanded=False):
+            st.markdown('<div class="historical-section">', unsafe_allow_html=True)
+            
+            # Get available years
+            if st.session_state.df is not None:
+                years = sorted(st.session_state.df["year"].unique())
+                
+                selected_year = st.selectbox("Select Year", years, key="year_select")
+                
+                if selected_year:
+                    # Get months for selected year
+                    months_df = st.session_state.df[st.session_state.df["year"] == selected_year]
+                    months_data = months_df[["month", "month_year"]].drop_duplicates().sort_values(by="month").to_dict(orient="records")
+                    
+                    if months_data:
+                        month_options = [(m["month_year"], m["month"]) for m in months_data]
+                        
+                        selected_month_name = st.selectbox(
+                            "Select Month", 
+                            [name for name, _ in month_options],
+                            key="month_select"
+                        )
+                        
+                        if selected_month_name:
+                            # Get month number
+                            selected_month_num = next(num for name, num in month_options if name == selected_month_name)
+                            
+                            # Get statements for selected year/month
+                            statements = st.session_state.df[
+                                (st.session_state.df["year"] == selected_year) &
+                                (st.session_state.df["month"] == selected_month_num)
+                            ].to_dict(orient="records")
+                            
+                            if statements:
+                                statement_options = [
+                                    f"{stmt['month_year']} - {stmt['statement_content'][:50]}..."
+                                    for stmt in statements
+                                ]
+                                
+                                selected_statement_idx = st.selectbox(
+                                    "Select Statement",
+                                    range(len(statement_options)),
+                                    format_func=lambda x: statement_options[x],
+                                    key="statement_select"
+                                )
+                                
+                                if st.button("📥 Load Selected Statement"):
+                                    selected_statement = statements[selected_statement_idx]
+                                    st.session_state.loaded_text = selected_statement["statement_content"]
+                                    
+                                    # Prepare actual values for display
+                                    actual_vals = {}
+                                    for col in LABEL_COLUMNS:
+                                        if col in selected_statement and pd.notna(selected_statement[col]):
+                                            actual_vals[col] = selected_statement[col]
+                                    st.session_state.actual_values = actual_vals
+                                    
+                                    st.success("Statement loaded!")
+                                    st.rerun()
+                            else:
+                                st.info("No statements available for this period.")
+                    else:
+                        st.warning("No months available for this year.")
+            else:
+                st.warning("Historical data not available. Please ensure the Excel file is correctly loaded.")
+            
+            st.markdown("</div>", unsafe_allow_html=True)
+        
+        # Text input
+        default_text = st.session_state.get("loaded_text", "")
+        text_input = st.text_area(
+            "Enter FOMC Statement Text",
+            value=default_text,
+            height=200,
+            placeholder="Paste FOMC statement text here or select from historical data above...",
+            key="text_input"
         )
         
-        if input_method == "Type/Paste Text":
-            user_text = st.text_area(
-                "Enter FOMC statement text:",
-                height=300,
-                placeholder="Paste your FOMC statement text here..."
-            )
-        else:
-            # Historical data selection
-            if "df" in st.session_state:
-                df = st.session_state.df
-                
-                # Year filter
-                years = sorted(df['year'].unique(), reverse=True)
-                selected_year = st.selectbox("Select Year:", years)
-                
-                # Filter by year
-                year_df = df[df['year'] == selected_year]
-                
-                # Month filter
-                months = sorted(year_df['month_year'].unique(), reverse=True)
-                selected_month = st.selectbox("Select Month:", months)
-                
-                # Filter by month
-                month_df = year_df[year_df['month_year'] == selected_month]
-                
-                if not month_df.empty:
-                    # Display statement
-                    statement_row = month_df.iloc[0]
-                    user_text = statement_row['statement_content']
-                    
-                    st.text_area(
-                        f"Statement from {selected_month}:",
-                        value=user_text,
-                        height=300,
-                        disabled=True
-                    )
-                else:
-                    user_text = ""
-                    st.warning("No data available for selected period.")
-            else:
-                user_text = ""
-                st.error("Historical data not loaded.")
-        
         # Classification button
-        if st.button("🔍 Classify Statement", type="primary", use_container_width=True):
-            if user_text.strip():
-                with st.spinner("Analyzing statement..."):
-                    results = classify_statement(user_text)
-                    st.session_state.classification_results = results
-                    st.session_state.classified_text = user_text
+        if st.button("🎯 Classify Statement", type="primary", use_container_width=True):
+            if text_input.strip():
+                with st.spinner("Classifying statement..."):
+                    results = classify_statement(text_input)
+                    if results:
+                        st.session_state.classification_results = results
+                        st.success("Classification completed!")
+                        st.rerun()
             else:
-                st.error("Please enter some text to classify.")
+                st.warning("Please enter some text to classify.")
     
     with right_col:
-        st.subheader("📊 Classification Results")
+        st.subheader("📊 Results")
         
+        # Display classification results
         if "classification_results" in st.session_state:
             display_classification_results(st.session_state.classification_results)
             
-            # Show classified text
-            with st.expander("📄 Classified Text", expanded=False):
-                st.text_area(
-                    "Text that was classified:",
-                    value=st.session_state.classified_text,
-                    height=200,
-                    disabled=True
-                )
+            # Show actual values if available
+            if "actual_values" in st.session_state and st.session_state.actual_values:
+                st.subheader("📋 Actual Values (from Historical Data)")
+                actual_values = st.session_state.actual_values
+                
+                for category, actual_value in actual_values.items():
+                    st.markdown(f"**{category}:** {actual_value}")
         else:
-            st.info("👈 Enter a statement and click 'Classify Statement' to see results here.")
-    
-    # Label mappings reference
-    st.markdown("---")
-    st.subheader("📋 Label Mappings Reference")
-    
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        st.markdown("**Sentiment:**")
-        st.markdown("• Positive\n• Neutral\n• Negative")
+            st.info("Results will appear here after classification...")
         
-        st.markdown("**Economic Growth:**")
-        st.markdown("• UP\n• Down\n• Flat")
-    
-    with col2:
-        st.markdown("**Employment Growth:**")
-        st.markdown("• UP\n• Down\n• Flat")
+        # Label mappings reference
+        st.subheader("📚 Label Mappings Reference")
         
-        st.markdown("**Inflation:**")
-        st.markdown("• UP\n• Down\n• Flat")
-    
-    with col3:
-        st.markdown("**Medium Term Rate:**")
-        st.markdown("• Hawk\n• Dove")
+        # Get label mappings directly
+        mapping_data = []
+        for category, labels in label_maps.items():
+            labels_str = ", ".join(labels.keys())
+            mapping_data.append({"Category": category, "Labels": labels_str})
         
-        st.markdown("**Policy Rate:**")
-        st.markdown("• Raise\n• Flat\n• Lower")
+        df_mappings = pd.DataFrame(mapping_data)
+        st.dataframe(df_mappings, use_container_width=True, hide_index=True)
 
 def main():
-    """Main application function"""
-    
+    """Main application logic"""
     # Initialize session state
     if "page" not in st.session_state:
         st.session_state.page = "home"
     
-    # Load models and data with progress indication
-    if "models_loaded" not in st.session_state:
-        with st.spinner("Loading models and data..."):
+    # Initialize models and data only once
+    if "initialized" not in st.session_state:
+        with st.spinner("🔄 Loading models and data..."):
             try:
                 load_models()
                 load_excel_data()
-                st.session_state.models_loaded = True
+                st.session_state.initialized = True
                 st.success("✅ Models and data loaded successfully!")
             except Exception as e:
-                st.error(f"❌ Error loading models: {str(e)}")
+                st.error(f"❌ Initialization failed: {str(e)}")
                 return
-    
-    # Page routing
+
+    # Route to appropriate page
     if st.session_state.page == "home":
         home_page()
     elif st.session_state.page == "classification":
