@@ -440,7 +440,7 @@ def home_page():
     st.markdown("""
     <style>
         .stApp {
-            background-color: linear-gradient(135deg, #f0f0f0 0%, #d9d9d9 100%);
+            background-color: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);;
         }
     
         .content-section {
