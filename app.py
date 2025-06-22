@@ -475,7 +475,7 @@ def home_page():
                     enabling <strong>faster and more accurate decision-making</strong> for traders, analysts, and researchers.
                 </p>
             </div>
-            <div style="background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
+            <div style="background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); padding: 3rem; border-radius: 15px; margin-top: 2rem;">
                 <div style="text-align: center;">
                     <h3 style="color: #2c3e50; margin-bottom: 1rem;">🎯 Why This Matters</h3>
                     <p style="font-size: 1.2rem; color: #34495e; margin-bottom: 1rem;">
