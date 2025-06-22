@@ -301,7 +301,7 @@ st.markdown("""
     }
 
     .classification-result {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        background: linear-gradient(135deg, #f8f9fa 100%, #e9ecef 0%);
         padding: 1.5rem;
         border-radius: 12px;
         margin: 1rem 0;
@@ -595,7 +595,7 @@ def home_page():
 
 def classification_page():
     """Display the classification page"""
-    col1, col2 = st.columns([1, 4])
+    col1, col2 = st.columns([1, 6])
     with col1:
         if st.button("← Back to Home"):
             st.session_state.page = "home"
@@ -611,7 +611,6 @@ def classification_page():
         
         # Historical data section
         with st.expander("📊 Select from Historical Data", expanded=False):
-            st.markdown('<div class="historical-section">', unsafe_allow_html=True)
             
             # Get available years
             if st.session_state.df is not None:
