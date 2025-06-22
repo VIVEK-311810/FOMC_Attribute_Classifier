@@ -510,6 +510,32 @@ def home_page():
         <div class="about-text">
             Our model identifies key economic signals across <strong>six critical dimensions</strong>:
         </div>
+        <div class="attributes-grid">
+            <div class="attribute-card">
+                <div class="attribute-icon">📊</div>
+                <div class="attribute-title">Sentiment</div>
+            </div>
+            <div class="attribute-card">
+                <div class="attribute-icon">📈</div>
+                <div class="attribute-title">Economic Growth</div>
+            </div>
+            <div class="attribute-card">
+                <div class="attribute-icon">👷</div>
+                <div class="attribute-title">Employment Growth</div>
+            </div>
+            <div class="attribute-card">
+                <div class="attribute-icon">💹</div>
+                <div class="attribute-title">Inflation</div>
+            </div>
+            <div class="attribute-card">
+                <div class="attribute-icon">🦅</div>
+                <div class="attribute-title">Medium Term Rate</div>
+            </div>
+            <div class="attribute-card">
+                <div class="attribute-icon">⚖️</div>
+                <div class="attribute-title">Policy Rate</div>
+            </div>
+        </div>
         
         
     </div>
