@@ -194,10 +194,10 @@ st.markdown("""
     }
 
     .subtitle {
-        font-size: 3.5rem !important;
-        font-weight: 600 !important;
+        font-size: 3rem !important;
+        font-weight: 500 !important;
         margin-bottom: 1rem !important;
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     }
 
     .content-section {
