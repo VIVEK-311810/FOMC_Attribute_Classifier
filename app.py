@@ -427,29 +427,72 @@ def display_classification_results(results: Dict):
 def home_page():
     """Display the enhanced home page"""
     
-    # Main Header Section
+    # Main Header Section with centered subheading
     st.markdown("""
     <div class="main-header">
         <h1 class="main-title">🏛️ FOMC Statement Classifier</h1>
-        <h2 class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</h2>
+        <div style="text-align: center;">
+            <p class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</p>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # Introduction Section
+    # Enhanced Introduction Section with more engaging content
     st.markdown("""
     <div class="content-section">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h2 style="color: #667eea; font-size: 2.2rem; margin-bottom: 1rem;">
+                🌟 Decoding the Language of Central Banking 🌟
+            </h2>
+        </div>
+        
         <div class="intro-text">
-            <p>
-                Federal Open Market Committee (FOMC) statements represent some of the most consequential communications in global finance, 
-                with each phrase carrying the potential to move markets. These carefully crafted documents present a unique challenge 
-                for financial professionals due to their technical complexity and nuanced policy signals.
-            </p>
-            <p>
-                Our advanced AI solution delivers precise, real-time analysis of these critical policy documents, 
-                transforming complex central bank communications into clear, structured economic intelligence. 
-                The system identifies key policy signals and classifies them according to established financial taxonomies, 
-                enabling faster and more accurate decision-making.
-            </p>
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                <span style="font-size: 3rem; margin-right: 1rem;">💼</span>
+                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
+                    <strong>Federal Open Market Committee (FOMC) statements</strong> represent some of the most consequential communications in global finance, 
+                    with each phrase carrying the potential to move markets worth trillions of dollars.
+                </p>
+            </div>
+            
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                <span style="font-size: 3rem; margin-right: 1rem;">🧩</span>
+                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
+                    These carefully crafted documents present a <strong>unique challenge</strong> for financial professionals due to their 
+                    technical complexity, diplomatic language, and nuanced policy signals that require expert interpretation.
+                </p>
+            </div>
+            
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                <span style="font-size: 3rem; margin-right: 1rem;">🚀</span>
+                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
+                    Our <strong>advanced AI solution</strong> delivers precise, real-time analysis of these critical policy documents, 
+                    transforming complex central bank communications into clear, structured economic intelligence.
+                </p>
+            </div>
+            
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                <span style="font-size: 3rem; margin-right: 1rem;">⚡</span>
+                <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
+                    The system identifies key policy signals and classifies them according to established financial taxonomies, 
+                    enabling <strong>faster and more accurate decision-making</strong> for traders, analysts, and researchers.
+                </p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
+                <div style="text-align: center;">
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">🎯 Why This Matters</h3>
+                    <p style="font-size: 1.2rem; color: #34495e; margin-bottom: 1rem;">
+                        <strong>📊 Market Impact:</strong> FOMC statements can trigger billions in trading volume within minutes
+                    </p>
+                    <p style="font-size: 1.2rem; color: #34495e; margin-bottom: 1rem;">
+                        <strong>⏰ Time Sensitivity:</strong> First-mover advantage in interpreting policy changes is crucial
+                    </p>
+                    <p style="font-size: 1.2rem; color: #34495e; margin-bottom: 0;">
+                        <strong>🔍 Precision Required:</strong> Subtle language changes can signal major policy shifts
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
