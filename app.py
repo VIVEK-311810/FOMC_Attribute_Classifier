@@ -165,7 +165,7 @@ st.set_page_config(
 st.markdown("""
 <style>
     .stApp {
-        background-color: #ffffff;
+        background-color: linear-gradient(135deg, #f5f7fa 5%, #c3cfe2 95%);
         color: #2c3e50; /* Set a default dark text color for the entire app */
     }
 
