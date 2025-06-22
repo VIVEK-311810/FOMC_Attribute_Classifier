@@ -413,13 +413,10 @@ st.markdown("""
         color: black;
     }
 
-    div[data-testid="stTextAreaRootElement"] div textarea ::name placeholder{
+    div[data-testid="stTextAreaRootElement"] div textarea ::placeholder{
         background-color: white !important;
         color: black;
     }
-
-
-
 
     @media (max-width: 768px) {
         .main-title {
