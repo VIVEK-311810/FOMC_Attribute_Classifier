@@ -260,7 +260,7 @@ def home_page():
     st.markdown("""
     <div class="centered-header">
         <h1 class="main-title">🏛️ FOMC Statement Classifier</h1>
-        <h3 class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</h3>
+        <h2 class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</h3>
     </div>
     """, unsafe_allow_html=True)
   
@@ -269,10 +269,10 @@ def home_page():
         <h3>
             This project fine-tuned ProsusAI/finBERT using FOMC statements to improve financial NLP tasks.
         </h3>
-        <h4>
+        <h3>
             ProsusAI → (MLM FineTuning) → fomc_mlm_minutes → (MLM FineTuning) → fomc_mlm_statements → (Classification FineTuning) → FOMC_LLM_VK
-        </h4>
-        <p style='font-size: 1.1em; margin: 2rem 0;'>
+        </h3>
+        <p style='font-size: 1.5em; margin: 2rem 0;'>
             FOMC Minutes are the detailed records of the Federal Reserve's meetings released late.<br>
             FOMC Statements are concise summaries released immediately after the meeting.<br><br>
             These FOMC data is helpful to guide market expectations and signal the Fed's outlook on Inflation, Economic Growth, and more.<br>
