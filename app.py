@@ -266,7 +266,7 @@ def home_page():
 
     st.markdown("""
     <div style="text-align: center; padding: 1rem 0;">
-        <p style="font-size: 1.1em; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+        <p style="font-size: 1.25em; line-height: 1.6; max-width: 800px; margin: 0 auto;">
             The Federal Open Market Committee (FOMC) statements are among the most scrutinized documents in the financial world, 
             capable of influencing markets with every word. Deciphering their dense and nuanced language can be a significant challenge.
             
@@ -278,7 +278,7 @@ def home_page():
 
   
     st.markdown("""
-    <div style='text-align: center; padding: 1.5rem 0;'>
+    <div style='text-align: center; padding: 1.25rem 0;'>
         <h3>
             This project fine-tuned ProsusAI/finBERT using FOMC statements to improve financial NLP tasks.
         </h3>
