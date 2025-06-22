@@ -403,10 +403,6 @@ st.markdown("""
         color: black;
     }
 
-    div[data-baseweb="select"] {
-        background-color: transparent !important;
-        color: black;
-    }
 
     @media (max-width: 768px) {
         .main-title {
