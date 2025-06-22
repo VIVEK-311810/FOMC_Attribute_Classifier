@@ -596,32 +596,42 @@ def home_page():
             Our model identifies key economic signals across <strong>six critical dimensions</strong>:
         </div>
         <div class="attributes-grid" >
-            <a href="https://huggingface.co/Vk311810/fomc-inflation-classifier">
+            <a href="https://huggingface.co/Vk311810/fomc_sentiment_classifier">
             <div class="attribute-card" >
                 <div class="attribute-icon">📊</div>
                 <div class="attribute-title">Sentiment</div>
             </div>
             </a>
+            <a href="https://huggingface.co/Vk311810/fomc-economic_growth-classifier">
             <div class="attribute-card">
                 <div class="attribute-icon">📈</div>
                 <div class="attribute-title">Economic Growth</div>
             </div>
+            </a>
+            <a href="https://huggingface.co/Vk311810/fomc-employment_growth-classifier">
             <div class="attribute-card">
                 <div class="attribute-icon">👷</div>
                 <div class="attribute-title">Employment Growth</div>
             </div>
+            </a>
+            <a href="https://huggingface.co/Vk311810/fomc-inflation-classifier">
             <div class="attribute-card">
                 <div class="attribute-icon">💹</div>
                 <div class="attribute-title">Inflation</div>
             </div>
+            </a>
+            <a href="https://huggingface.co/Vk311810/fomc-medium_rate-classifier">
             <div class="attribute-card">
                 <div class="attribute-icon">🦅</div>
                 <div class="attribute-title">Medium Term Rate</div>
             </div>
+            </a>
+            <a href="https://huggingface.co/Vk311810/fomc-policy_rate-classifier">
             <div class="attribute-card">
                 <div class="attribute-icon">⚖️</div>
                 <div class="attribute-title">Policy Rate</div>
             </div>
+            </a>
         </div>
         
         
