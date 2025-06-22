@@ -251,7 +251,7 @@ st.markdown("""
         gap: 1.5rem;
         margin: 2rem 0;
     }
-    .attribute-grid a:link{
+    .attribute-grid a{
       text-decoration:none;
     }
     .attribute-card {
