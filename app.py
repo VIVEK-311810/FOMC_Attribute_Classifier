@@ -362,11 +362,10 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
 
-    .stDataFrame div div div div div canvas table {
+    .stDataFrame table {
         background-color: white;
         color: black;
-        border-collapse: collapse;
-        width: 100%;
+        
     }
 
     .stDataFrame th {
