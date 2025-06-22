@@ -286,8 +286,6 @@ st.markdown("""
         margin: 0;
     }
 
-    
-
     .stButton > button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
