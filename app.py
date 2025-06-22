@@ -703,7 +703,7 @@ def main():
                 load_models()
                 load_excel_data()
                 st.session_state.initialized = True
-                st.success("✅ Models and data loaded successfully!")
+                st.toast("✅ Models and data loaded successfully!")
             except Exception as e:
                 st.error(f"❌ Initialization failed: {str(e)}")
                 return
