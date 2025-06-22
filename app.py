@@ -353,6 +353,62 @@ st.markdown("""
         margin-bottom: 0;
     }
 
+    /* Custom styles for select boxes and text area */
+    .stSelectbox > div > div, .stTextArea > div > div {
+        background: linear-gradient(to right, #f0f2f6, #e6e9ed); /* Whitish linear gradient */
+        border: 1px solid #d1d9e6;
+        border-radius: 8px;
+        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05), inset -2px -2px 5px rgba(255, 255, 255, 0.8);
+        color: #2c3e50;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .stSelectbox > div > div:hover, .stTextArea > div > div:hover {
+        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1), inset -2px -2px 5px rgba(255, 255, 255, 0.9);
+    }
+
+    .stSelectbox > div > div:focus-within, .stTextArea > div > div:focus-within {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    }
+
+    /* Style for the table (Label Mappings Reference) */
+    .stDataFrame {
+        border-radius: 8px;
+        overflow: hidden; /* Ensures border-radius applies to content */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .stDataFrame table {
+        background: linear-gradient(to bottom, #f0f2f6, #e6e9ed); /* Whitish linear gradient for table background */
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .stDataFrame th {
+        background: linear-gradient(to right, #e0e2e6, #d6d9de); /* Slightly darker gradient for table headers */
+        color: #34495e;
+        font-weight: bold;
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 2px solid #c3cfe2;
+    }
+
+    .stDataFrame td {
+        padding: 10px 15px;
+        border-bottom: 1px solid #d1d9e6;
+        color: #2c3e50;
+    }
+
+    .stDataFrame tr:last-child td {
+        border-bottom: none;
+    }
+
+    .stDataFrame tbody tr:hover {
+        background-color: #e9eff5; /* Light hover effect for rows */
+    }
+
     @media (max-width: 768px) {
         .main-title {
             font-size: 2.4rem !important;
