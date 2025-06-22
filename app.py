@@ -300,35 +300,279 @@ st.markdown("""
         box-shadow: 0 15px 35px rgba(102, 126, 234, 0.35);
     }
 
-    .classification-result {
+    /* Enhanced Classification Page Styling */
+    .classification-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: white;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    .classification-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .classification-header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin: 0;
+    }
+
+    /* Tab Styling */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 1rem;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 1rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .stTabs [data-baseweb="tab-list"] button {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 1rem 1.5rem;
+        font-weight: 600;
+        color: #2c3e50;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .stTabs [data-baseweb="tab-list"] button:hover {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-color: #667eea;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-color: #667eea;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    /* Tab Content Styling */
+    .stTabs [data-baseweb="tab-panel"] {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        border: 1px solid #e8e8e8;
+    }
+
+    /* Text Area Styling */
+    .stTextArea > div > div > textarea {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 1rem;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #2c3e50;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .stTextArea > div > div > textarea:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
         background: #ffffff;
+    }
+
+    /* Classification Results Styling */
+    .classification-result {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1.5rem 0;
+        border-left: 5px solid #667eea;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        border: 1px solid #e8e8e8;
+    }
+
+    .classification-result h3 {
+        color: #667eea;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .result-item {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         padding: 1.5rem;
         border-radius: 12px;
         margin: 1rem 0;
-        border-left: 4px solid #667eea;
+        border: 1px solid #dee2e6;
+        transition: all 0.3s ease;
+    }
+
+    .result-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-color: #667eea;
+    }
+
+    .result-label {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+    }
+
+    .result-prediction {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #495057;
     }
 
     .confidence-high {
         color: #28a745;
         font-weight: bold;
+        font-size: 1.1rem;
     }
 
     .confidence-medium {
         color: #ffc107;
         font-weight: bold;
+        font-size: 1.1rem;
     }
 
     .confidence-low {
         color: #dc3545;
         font-weight: bold;
+        font-size: 1.1rem;
     }
 
-    .historical-section {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        padding: 1.5rem;
+    /* Select Box Styling */
+    .stSelectbox > div > div {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border: 2px solid #e0e0e0;
         border-radius: 12px;
-        margin: 1rem 0;
-        border: 1px solid #dee2e6;
+        padding: 0.5rem 1rem;
+        color: #2c3e50;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .stSelectbox > div > div:hover {
+        border-color: #667eea;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+    }
+
+    .stSelectbox > div > div:focus-within {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    }
+
+    /* Historical Data Section */
+    .historical-section {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1.5rem 0;
+        border: 1px solid #e8e8e8;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .historical-section h3 {
+        color: #667eea;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    /* Expander Styling */
+    div[data-testid="stExpander"] {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        border: 2px solid #e8e8e8;
+        transition: all 0.3s ease;
+    }
+
+    div[data-testid="stExpander"]:hover {
+        border-color: #667eea;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+    }
+
+    div[data-testid="stExpanderDetails"] {
+        background-color: transparent !important;
+        padding-top: 1rem;
+    }
+
+    /* Table Styling */
+    .stDataFrame {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        border: 1px solid #e8e8e8;
+    }
+
+    .stDataFrame table {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .stDataFrame th {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-weight: 700;
+        padding: 1rem;
+        text-align: left;
+        font-size: 1.1rem;
+    }
+
+    .stDataFrame td {
+        padding: 1rem;
+        border-bottom: 1px solid #e8e8e8;
+        color: #2c3e50;
+        font-size: 1rem;
+    }
+
+    .stDataFrame tr:last-child td {
+        border-bottom: none;
+    }
+
+    .stDataFrame tbody tr:hover {
+        background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+    }
+
+    /* Back Button Styling */
+    .back-button {
+        background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+    }
+
+    .back-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
     }
 
     hr {
@@ -342,86 +586,16 @@ st.markdown("""
     .footer-info {
         text-align: center;
         padding: 2rem;
-        background: #f8f9fa;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         border-radius: 15px;
         margin-top: 3rem;
         color: #6c757d;
         font-size: 1rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
     .stMarkdown {
         margin-bottom: 0;
-    }
-
-    /* Custom styles for select boxes and text area */
-    .stSelectbox > div > div, .stTextArea > div > div {
-        background: linear-gradient(to right, #f0f2f6, #e6e9ed); /* Whitish linear gradient */
-        border: 1px solid #d1d9e6;
-        border-radius: 8px;
-        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05), inset -2px -2px 5px rgba(255, 255, 255, 0.8);
-        color: #212529; /* Darker text color for visibility */
-        padding: 0.5rem 1rem;
-        transition: all 0.3s ease;
-    }
-
-    .stSelectbox > div > div:hover, .stTextArea > div > div:hover {
-        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1), inset -2px -2px 5px rgba(255, 255, 255, 0.9);
-    }
-
-    .stSelectbox > div > div:focus-within, .stTextArea > div > div:focus-within {
-        border-color: #667eea;
-        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
-    }
-
-    /* Style for the table (Label Mappings Reference) */
-    .stDataFrame {
-        border-radius: 8px;
-        overflow: hidden; /* Ensures border-radius applies to content */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    }
-
-    .stDataFrame table {
-        background: linear-gradient(to bottom, #e0f7f7, #d0f0f0); /* Light blue/cyan gradient for table background */
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    .stDataFrame th {
-        background: linear-gradient(to right, #c0e7e7, #b0e0e0); /* Slightly darker blue/cyan gradient for table headers */
-        color: #34495e;
-        font-weight: bold;
-        padding: 12px 15px;
-        text-align: left;
-        border-bottom: 2px solid #a0d0d0; /* Matching border color */
-    }
-
-    .stDataFrame td {
-        padding: 10px 15px;
-        border-bottom: 1px solid #c1e9e9; /* Lighter matching border */
-        color: #2c3e50;
-    }
-
-    .stDataFrame tr:last-child td {
-        border-bottom: none;
-    }
-
-    .stDataFrame tbody tr:hover {
-        background-color: #d9f5f5; /* Light hover effect for rows */
-    }
-
-    /* Historical data expander box */
-    div[data-testid="stExpander"] {
-        background: linear-gradient(135deg, #f0f8ff, #e6f2ff); /* Light blueish-white gradient */
-        border-radius: 12px;
-        padding: 1rem; /* Add some padding inside the box */
-        margin-bottom: 1.5rem; /* Space below the box */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        border: 1px solid #d1e0f0; /* Light border */
-    }
-
-    /* Ensure the content inside the expander also has a transparent background if it defaults to white */
-    div[data-testid="stExpanderDetails"] {
-        background-color: transparent !important;
     }
 
     @media (max-width: 768px) {
@@ -448,6 +622,18 @@ st.markdown("""
 
         .stButton > button {
             width: 100% !important;
+        }
+
+        .classification-header h1 {
+            font-size: 2rem !important;
+        }
+
+        .classification-header p {
+            font-size: 1rem !important;
+        }
+
+        .stTabs [data-baseweb="tab-panel"] {
+            padding: 1.5rem;
         }
     }
 </style>
@@ -480,7 +666,12 @@ def display_classification_results(results: Dict):
         "policy_rate": "Policy Rate"
     }
     
-    st.subheader("🎯 Classification Results")
+    # Create a styled results container
+    st.markdown("""
+    <div class="classification-result">
+        <h3>🎯 Classification Results</h3>
+    </div>
+    """, unsafe_allow_html=True)
     
     for key, display_name in display_mapping.items():
         if key in results:
@@ -488,12 +679,16 @@ def display_classification_results(results: Dict):
             prediction = result.get("prediction", "N/A")
             confidence = result.get("confidence", 0.0)
             
-            with st.container():
-                col1, col2 = st.columns([2, 1])
-                with col1:
-                    st.markdown(f"**{display_name}:** {prediction}")
-                with col2:
-                    st.markdown(f"Confidence: {format_confidence(confidence)}", unsafe_allow_html=True)
+            # Create styled result item
+            st.markdown(f"""
+            <div class="result-item">
+                <div class="result-label">{display_name}</div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="result-prediction">Prediction: <strong>{prediction}</strong></div>
+                    <div>Confidence: {format_confidence(confidence)}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
 
 def home_page():
     """Display the enhanced home page"""
@@ -604,19 +799,17 @@ def home_page():
     </div>
     """, unsafe_allow_html=True)
 
-
-    # About Section
+    # About the AI Tool Section
     st.markdown("""
     <div class="about-section">
         <h2 class="about-title">🧠 About the AI Tool</h2>
-        <div class="about-text">
-            This tool is powered by a <strong>fine-tuned FinBERT model</strong>, a variant of Google's BERT 
-            specifically pre-trained on a vast corpus of financial text. We further specialized it 
-            using annotated FOMC statements to understand the unique nuances of central bank language.
-        </div>
-        <div class="about-text">
+        <p class="about-text">
+            This tool is powered by a <strong>fine-tuned FinBERT model</strong>, a variant of Google's BERT specifically pre-trained on a vast corpus of financial text. 
+            We further specialized it using annotated FOMC statements to understand the unique nuances of central bank language.
+        </p>
+        <p class="about-text">
             Our model identifies key economic signals across <strong>six critical dimensions</strong>:
-        </div>
+        </p>
         <div class="attributes-grid">
             <div class="attribute-card">
                 <div class="attribute-icon">📊</div>
@@ -643,193 +836,157 @@ def home_page():
                 <div class="attribute-title">Policy Rate</div>
             </div>
         </div>
-        
-        
     </div>
     """, unsafe_allow_html=True)
 
-    # Call-to-Action Button
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
-            st.session_state.page = "classification"
-            st.rerun()
+    # Button to enter classification tool
+    if st.button("➡️ Enter Classification Tool"): 
+        st.session_state.page = "classification"
+        st.experimental_rerun()
 
     # Footer
     st.markdown("""
     <div class="footer-info">
-        <strong>Project by:</strong> Vivek Maddula<br>
-        <strong>Research Guide:</strong> Dr. Brindha
+        <p>&copy; 2025 FOMC Statement Classifier. All rights reserved.</p>
+        <p>Built with ❤️ using Streamlit and Hugging Face Transformers.</p>
     </div>
     """, unsafe_allow_html=True)
 
-
 def classification_page():
-    """Display the classification page"""
-    col1, col2 = st.columns([1, 6])
-    with col1:
-        if st.button("← Back to Home"):
-            st.session_state.page = "home"
-            st.rerun()
+    """Display the enhanced classification page"""
     
-    st.title("🎯 FOMC Statement Classification")
-    
-    # Create two main columns
-    left_col, right_col = st.columns([1, 1])
-    
-    with left_col:
-        st.subheader("📝 Input")
+    # Enhanced Header for Classification Page
+    st.markdown("""
+    <div class="classification-header">
+        <h1>🎯 FOMC Statement Classification</h1>
+        <p>Analyze the sentiment and attributes of Federal Reserve communications with advanced AI</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Back button with custom styling
+    if st.button("⬅️ Back to Home", key="back_home"): 
+        st.session_state.page = "home"
+        st.experimental_rerun()
+
+    # Enhanced tabs with better styling
+    tab1, tab2, tab3 = st.tabs(["🔍 Classify New Statement", "📚 Browse Historical Data", "📋 Label Mappings"])
+
+    with tab1:
+        st.markdown("""
+        <div class="historical-section">
+            <h3>🔍 Classify a New FOMC Statement</h3>
+        </div>
+        """, unsafe_allow_html=True)
         
-        # Historical data section
-        with st.expander("📊 Select from Historical Data", expanded=False):
-            
-            # Get available years
-            if st.session_state.df is not None:
-                years = sorted(st.session_state.df["year"].unique())
-                
-                selected_year = st.selectbox("Select Year", years, key="year_select")
-                
-                if selected_year:
-                    # Get months for selected year
-                    months_df = st.session_state.df[st.session_state.df["year"] == selected_year]
-                    months_data = months_df[["month", "month_year"]].drop_duplicates().sort_values(by="month").to_dict(orient="records")
-                    
-                    if months_data:
-                        month_options = [(m["month_year"], m["month"]) for m in months_data]
-                        
-                        selected_month_name = st.selectbox(
-                            "Select Month", 
-                            [name for name, _ in month_options],
-                            key="month_select"
-                        )
-                        
-                        if selected_month_name:
-                            # Get month number
-                            selected_month_num = next(num for name, num in month_options if name == selected_month_name)
-                            
-                            # Get statements for selected year/month
-                            statements = st.session_state.df[
-                                (st.session_state.df["year"] == selected_year) &
-                                (st.session_state.df["month"] == selected_month_num)
-                            ].to_dict(orient="records")
-                            
-                            if statements:
-                                statement_options = [
-                                    f"{stmt['month_year']} - {stmt['statement_content'][:50]}..."
-                                    for stmt in statements
-                                ]
-                                
-                                selected_statement_idx = st.selectbox(
-                                    "Select Statement",
-                                    range(len(statement_options)),
-                                    format_func=lambda x: statement_options[x],
-                                    key="statement_select"
-                                )
-                                
-                                if st.button("📥 Load Selected Statement"):
-                                    selected_statement = statements[selected_statement_idx]
-                                    st.session_state.loaded_text = selected_statement["statement_content"]
-                                    
-                                    # Prepare actual values for display
-                                    actual_vals = {}
-                                    for col in LABEL_COLUMNS:
-                                        if col in selected_statement and pd.notna(selected_statement[col]):
-                                            actual_vals[col] = selected_statement[col]
-                                    st.session_state.actual_values = actual_vals
-                                    
-                                    st.success("Statement loaded!")
-                                    st.rerun()
-                            else:
-                                st.info("No statements available for this period.")
-                    else:
-                        st.warning("No months available for this year.")
-            else:
-                st.warning("Historical data not available. Please ensure the Excel file is correctly loaded.")
-            
-            st.markdown("</div>", unsafe_allow_html=True)
-        
-        # Text input
-        default_text = st.session_state.get("loaded_text", "")
-        text_input = st.text_area(
-            "Enter FOMC Statement Text",
-            value=default_text,
+        user_input = st.text_area(
+            "Enter FOMC Statement Text Here:", 
             height=200,
-            placeholder="Paste FOMC statement text here or select from historical data above...",
-            key="text_input"
+            placeholder="Paste your FOMC statement text here for AI-powered analysis..."
         )
         
-        # Classification button
-        if st.button("🎯 Classify Statement", type="primary", use_container_width=True):
-            if text_input.strip():
-                with st.spinner("Classifying statement..."):
-                    results = classify_statement(text_input)
-                    if results:
-                        st.session_state.classification_results = results
-                        st.success("Classification completed!")
-                        st.rerun()
+        if st.button("🚀 Classify Statement", key="classify_new"): 
+            if user_input:
+                with st.spinner("🤖 Analyzing statement with AI models..."):
+                    results = classify_statement(user_input)
+                    display_classification_results(results)
             else:
-                st.warning("Please enter some text to classify.")
-    
-    with right_col:
-        st.subheader("📊 Results")
-        
-        # Display classification results
-        if "classification_results" in st.session_state:
-            display_classification_results(st.session_state.classification_results)
-            
-            # Show actual values if available
-            if "actual_values" in st.session_state and st.session_state.actual_values:
-                st.subheader("📋 Actual Values (from Historical Data)")
-                actual_values = st.session_state.actual_values
-                
-                for category, actual_value in actual_values.items():
-                    st.markdown(f"**{category}:** {actual_value}")
-        else:
-            st.info("Results will appear here after classification...")
-        
-        # Label mappings reference
-        st.subheader("📚 Label Mappings Reference")
-        
-        # Get label mappings directly
-        mapping_data = []
-        for category, labels in label_maps.items():
-            labels_str = ", ".join(labels.keys())
-            mapping_data.append({"Category": category, "Labels": labels_str})
-        
-        df_mappings = pd.DataFrame(mapping_data)
-        st.dataframe(df_mappings, use_container_width=True, hide_index=True)
+                st.warning("⚠️ Please enter some text to classify.")
 
-def main():
-    """Main application logic"""
-    # Initialize session state
+    with tab2:
+        st.markdown("""
+        <div class="historical-section">
+            <h3>📚 Browse Historical FOMC Statements</h3>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if "df" in st.session_state:
+            df = st.session_state.df
+            
+            # Enhanced filters with better styling
+            col_year, col_month = st.columns(2)
+            with col_year:
+                selected_year = st.selectbox(
+                    "📅 Select Year", 
+                    options=["All"] + sorted(df["year"].unique().tolist(), reverse=True)
+                )
+            with col_month:
+                # Filter months based on selected year
+                if selected_year != "All":
+                    months_in_year = sorted(df[df["year"] == selected_year]["month_year"].unique().tolist(), 
+                                            key=lambda x: pd.to_datetime(x, format="%b %Y"))
+                else:
+                    months_in_year = sorted(df["month_year"].unique().tolist(), 
+                                            key=lambda x: pd.to_datetime(x, format="%b %Y"))
+                selected_month_year = st.selectbox("📆 Select Month", options=["All"] + months_in_year)
+
+            filtered_df = df.copy()
+            if selected_year != "All":
+                filtered_df = filtered_df[filtered_df["year"] == selected_year]
+            if selected_month_year != "All":
+                filtered_df = filtered_df[filtered_df["month_year"] == selected_month_year]
+            
+            if not filtered_df.empty:
+                st.success(f"📊 Found {len(filtered_df)} statements.")
+                selected_statement = st.selectbox(
+                    "📄 Select a statement to view and classify:",
+                    options=filtered_df["month_year"].tolist(),
+                    format_func=lambda x: f"{x} - {filtered_df[filtered_df['month_year'] == x]['Date'].dt.strftime('%Y-%m-%d').iloc[0]}"
+                )
+                
+                if selected_statement:
+                    statement_content = filtered_df[filtered_df["month_year"] == selected_statement]["statement_content"].iloc[0]
+                    
+                    # Enhanced expander for statement content
+                    with st.expander("📖 View Statement Content", expanded=True):
+                        st.text_area("Statement Content:", statement_content, height=300, disabled=True)
+                    
+                    if st.button("🚀 Classify Selected Statement", key="classify_historical"): 
+                        with st.spinner("🤖 Analyzing historical statement..."):
+                            results = classify_statement(statement_content)
+                            display_classification_results(results)
+            else:
+                st.info("ℹ️ No statements found for the selected filters.")
+        else:
+            st.warning("⚠️ Historical data not loaded. Please ensure the Excel file is in the correct path.")
+
+    with tab3:
+        st.markdown("""
+        <div class="historical-section">
+            <h3>📋 Label Mappings Reference</h3>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("This section explains the mapping of model outputs to human-readable labels.")
+        
+        # Create a more visually appealing table
+        for label_type, mapping in label_maps.items():
+            st.markdown(f"### 🏷️ {label_type} Mappings")
+            
+            # Convert to DataFrame for better display
+            mapping_df = pd.DataFrame([
+                {"Label": key, "Internal ID": value} 
+                for key, value in mapping.items()
+            ])
+            st.dataframe(mapping_df, use_container_width=True)
+            st.markdown("---")
+
+# Main app logic
+if __name__ == "__main__":
     if "page" not in st.session_state:
         st.session_state.page = "home"
 
-    st.markdown("""
-    <style>
-        .stSpinner > div > div {
-            color: black !important;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-    # Initialize models and data only once
-    if "initialized" not in st.session_state:
-        with st.spinner("🔄 Loading models and data..."):
-            try:
-                load_models()
-                load_excel_data()
-                st.session_state.initialized = True
-                st.toast("✅ Models and data loaded successfully!")
-                
-            except Exception as e:
-                st.error(f"❌ Initialization failed: {str(e)}")
-                return
+    # Display loading message only once at the beginning
+    if "models_loaded" not in st.session_state:
+        with st.spinner("🚀 Loading AI models and historical data..."):
+            load_models()
+            if load_excel_data():
+                st.success("✅ Models and data loaded successfully!")
+            else:
+                st.error("❌ Failed to load historical data. Please check the Excel file path.")
+            st.session_state.models_loaded = True
 
-    # Route to appropriate page
     if st.session_state.page == "home":
         home_page()
     elif st.session_state.page == "classification":
         classification_page()
 
-if __name__ == "__main__":
-    main()
