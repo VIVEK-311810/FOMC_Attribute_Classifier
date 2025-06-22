@@ -301,7 +301,7 @@ st.markdown("""
     }
 
     .classification-result {
-        background: linear-gradient(135deg, #f8f9fa 100%, #e9ecef 0%);
+        background: linear-gradient(135deg, #1a1a1a 0%, #f5f5f5 100%);
         padding: 1.5rem;
         border-radius: 12px;
         margin: 1rem 0;
