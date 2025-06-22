@@ -574,7 +574,6 @@ def classification_page():
         
         # Historical data section
         with st.expander("📊 Select from Historical Data", expanded=False):
-            st.markdown('<div class="historical-section">', unsafe_allow_html=True)
             
             # Get available years
             if st.session_state.df is not None:
