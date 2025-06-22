@@ -428,8 +428,8 @@ def display_classification_results(results: Dict):
 
 def home_page():
     """Display the enhanced home page"""
-    
-    # Main Header Section with centered subheading
+
+    # Main Header Section
     st.markdown("""
     <div class="main-header">
         <h1 class="main-title">🏛️ FOMC Statement Classifier</h1>
@@ -437,7 +437,7 @@ def home_page():
     </div>
     """, unsafe_allow_html=True)
 
-    # Enhanced Introduction Section with more engaging content
+    # Introduction Section
     st.markdown("""
     <div class="content-section">
         <div style="text-align: center; margin-bottom: 2rem;">
@@ -454,7 +454,7 @@ def home_page():
                     with each phrase carrying the potential to move markets worth trillions of dollars.
                 </p>
             </div>
-            
+
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">🧩</span>
                 <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
@@ -462,7 +462,7 @@ def home_page():
                     technical complexity, diplomatic language, and nuanced policy signals that require expert interpretation.
                 </p>
             </div>
-            
+
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">🚀</span>
                 <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
@@ -470,7 +470,7 @@ def home_page():
                     transforming complex central bank communications into clear, structured economic intelligence.
                 </p>
             </div>
-            
+
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                 <span style="font-size: 3rem; margin-right: 1rem;">⚡</span>
                 <p style="font-size: 1.3rem; margin: 0; max-width: 600px;">
@@ -478,7 +478,7 @@ def home_page():
                     enabling <strong>faster and more accurate decision-making</strong> for traders, analysts, and researchers.
                 </p>
             </div>
-            
+
             <div style="background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
                 <div style="text-align: center;">
                     <h3 style="color: #2c3e50; margin-bottom: 1rem;">🎯 Why This Matters</h3>
@@ -488,7 +488,7 @@ def home_page():
                     <p style="font-size: 1.2rem; color: #34495e; margin-bottom: 1rem;">
                         <strong>⏰ Time Sensitivity:</strong> First-mover advantage in interpreting policy changes is crucial
                     </p>
-                    <p style="font-size: 1.2rem; color: #34495e; margin-bottom: 0;">
+                    <p style="font-size: 1.2rem; color: #34495e;">
                         <strong>🔍 Precision Required:</strong> Subtle language changes can signal major policy shifts
                     </p>
                 </div>
@@ -497,7 +497,7 @@ def home_page():
     </div>
     """, unsafe_allow_html=True)
 
-    # About the AI Tool Section
+    # About Section
     st.markdown("""
     <div class="about-section">
         <h2 class="about-title">🧠 About the AI Tool</h2>
@@ -539,20 +539,21 @@ def home_page():
     </div>
     """, unsafe_allow_html=True)
 
-    # Call to Action
+    # Call-to-Action Button
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
             st.session_state.page = "classification"
             st.rerun()
 
-    # Footer Information
+    # Footer
     st.markdown("""
     <div class="footer-info">
         <strong>Project by:</strong> Vivek Maddula<br>
         <strong>Research Guide:</strong> Dr. Brindha
     </div>
     """, unsafe_allow_html=True)
+
 
 def classification_page():
     """Display the classification page"""
