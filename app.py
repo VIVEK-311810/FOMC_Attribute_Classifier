@@ -495,16 +495,14 @@ def home_page():
     </style>
     
     <div class="content-section">
-        <h2 class="title">🌟 Decoding the Language of Central Banking 🌟</h2>
-    
+        <h2 class="title">🌟 Decoding the Language of Central Banking 🌟</h2>    
         <div class="section-block">
             <span>💼</span>
             <div class="section-text">
                 <strong>Federal Open Market Committee (FOMC) statements</strong> represent some of the most consequential communications in global finance, 
                 with each phrase carrying the potential to move markets worth trillions of dollars.
             </div>
-        </div>
-    
+        </div>    
         <div class="section-block">
             <span>🧩</span>
             <div class="section-text">
@@ -512,7 +510,6 @@ def home_page():
                 technical complexity, diplomatic language, and nuanced policy signals that require expert interpretation.
             </div>
         </div>
-    
         <div class="section-block">
             <span>🚀</span>
             <div class="section-text">
@@ -520,15 +517,13 @@ def home_page():
                 transforming complex central bank communications into clear, structured economic intelligence.
             </div>
         </div>
-    
         <div class="section-block">
             <span>⚡</span>
             <div class="section-text">
                 The system identifies key policy signals and classifies them according to established financial taxonomies, 
                 enabling <strong>faster and more accurate decision-making</strong> for traders, analysts, and researchers.
             </div>
-        </div>
-    
+        </div>    
         <div class="highlight-box">
             <h3>🎯 Why This Matters</h3>
             <p><strong>📊 Market Impact:</strong> FOMC statements can trigger billions in trading volume within minutes</p>
