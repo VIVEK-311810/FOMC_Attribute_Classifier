@@ -541,11 +541,10 @@ def home_page():
     """, unsafe_allow_html=True)
 
     # Call-to-Action Button
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
-            st.session_state.page = "classification"
-            st.rerun()
+  
+    if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
+        st.session_state.page = "classification"
+        st.rerun()
 
     # Footer
     st.markdown("""
