@@ -870,13 +870,7 @@ def classification_page():
             <h3>🔍 Classify a New FOMC Statement</h3>
         </div>
         """, unsafe_allow_html=True)
-        st.markdown("""
-        <style>
-        textarea {
-            color: #212529 !important;  /* Bootstrap dark text */
-        }
-        </style>
-        """, unsafe_allow_html=True)
+        
         
         user_input = st.text_area(
             "Enter FOMC Statement Text Here:", 
