@@ -263,6 +263,7 @@ st.markdown("""
     }
 
     .attribute-card:hover {
+        cursor:pointer;
         transform: translateY(-6px);
         box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
         border-color: #667eea;
@@ -275,6 +276,7 @@ st.markdown("""
 
     .attribute-title {
         font-size: 1.1rem;
+        text-decoration = None;
         font-weight: 600;
         color: #2c3e50;
         margin: 0;
