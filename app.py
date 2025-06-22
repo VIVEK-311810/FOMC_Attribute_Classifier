@@ -265,35 +265,50 @@ def home_page():
     """, unsafe_allow_html=True)
 
     st.markdown("""
-    <div style="text-align: center; padding: 1rem 0;">
-        <p style="font-size: 1.25em; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-            The Federal Open Market Committee (FOMC) statements are among the most scrutinized documents in the financial world, 
-            capable of influencing markets with every word. Deciphering their dense and nuanced language can be a significant challenge.
-            
-            This application provides a powerful, AI-driven solution to analyze and classify these critical statements, 
-            transforming complex financial jargon into clear, actionable economic insights.
+    <div style="text-align: center; padding: 1.5rem 0; max-width: 800px; margin: 0 auto;">
+        <p style="font-size: 1.25em; line-height: 1.8; color: #333; margin-bottom: 1.5rem;">
+            Federal Open Market Committee (FOMC) statements represent some of the most consequential communications in global finance, 
+            with each phrase carrying the potential to move markets. These carefully crafted documents present a unique challenge 
+            for financial professionals due to their technical complexity and nuanced policy signals.
+        </p>
+        <p style="font-size: 1.25em; line-height: 1.8; color: #333;">
+            Our advanced AI solution delivers precise, real-time analysis of these critical policy documents, 
+            transforming complex central bank communications into clear, structured economic intelligence. 
+            The system identifies key policy signals and classifies them according to established financial taxonomies, 
+            enabling faster and more accurate decision-making.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
   
-    st.markdown("""
-    <div style='text-align: center; padding: 1.25rem 0;'>
-        <h3>
-            This project fine-tuned ProsusAI/finBERT using FOMC statements to improve financial NLP tasks.
-        </h3>
-        <h3>
-            ProsusAI → (MLM FineTuning) → fomc_mlm_minutes → (MLM FineTuning) → fomc_mlm_statements → (Classification FineTuning) → FOMC_LLM_VK
-        </h3>
-        <p style='font-size: 1.5em; margin: 2rem 0;'>
-            FOMC Minutes are the detailed records of the Federal Reserve's meetings released late.<br>
-            FOMC Statements are concise summaries released immediately after the meeting.<br><br>
-            These FOMC data is helpful to guide market expectations and signal the Fed's outlook on Inflation, Economic Growth, and more.<br>
-            This model is helpful for classifying these FOMC statements according to 6 attributes:<br>
-            <strong>Sentiment, Economic Growth, Employment Growth, Inflation, Medium Term Rate, Policy Rate</strong>
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("--- ")
+    
+    # Section: About the AI Tool
+    st.subheader("🧠 About the AI Tool")
+    
+    col_about1, col_about2 = st.columns([1, 2])
+    with col_about1:
+        st.image("https://i.imgur.com/your_image_here.png", caption="AI at Work (Placeholder)", use_container_width=True) # Replace with a relevant image URL
+    with col_about2:
+        st.markdown("""
+        This tool is powered by a **fine-tuned FinBERT model**, a variant of Google's BERT 
+        specifically pre-trained on a vast corpus of financial text. We further specialized it 
+        using annotated FOMC statements to understand the unique nuances of central bank language.
+        
+        Our model identifies key economic signals across **six critical dimensions**:
+        """, unsafe_allow_html=True)
+    
+    # Displaying the attributes with icons
+    col_attr1, col_attr2, col_attr3 = st.columns(3)
+    with col_attr1:
+        st.markdown("**📊 Sentiment**")
+        st.markdown("**📈 Economic Growth**")
+    with col_attr2:
+        st.markdown("**👷 Employment Growth**")
+        st.markdown("**💹 Inflation**")
+    with col_attr3:
+        st.markdown("**🦅 Medium Term Rate**")
+        st.markdown("**⚖️ Policy Rate**")
     
     st.markdown("---")
     
