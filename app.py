@@ -731,7 +731,6 @@ def classification_page():
         
         # Text input
         default_text = st.session_state.get("loaded_text", "")
-        st.subheader("📝 Input")
         text_input = st.text_area(
             "Enter Text Here",
             value=default_text,
