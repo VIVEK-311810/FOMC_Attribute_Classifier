@@ -164,10 +164,6 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-    input{
-        background-color: white;
-        color: dark;
-    }
     .stApp {
         background-color: #ffffff;
         color: #2c3e50; /* Set a default dark text color for the entire app */
