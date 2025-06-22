@@ -353,6 +353,7 @@ st.markdown("""
     /* Force white background for all DataFrames */
     div[data-testid="stDataFrame"] div {
         background-color: white !important;
+        color: black !important;
     }
     
     div[data-testid="stDataFrame"] table {
