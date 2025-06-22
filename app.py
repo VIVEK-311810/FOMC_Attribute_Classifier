@@ -276,7 +276,7 @@ st.markdown("""
 
     .attribute-title {
         font-size: 1.1rem;
-        text-decoration = None;
+        text-decoration: none;
         font-weight: 600;
         color: #2c3e50;
         margin: 0;
