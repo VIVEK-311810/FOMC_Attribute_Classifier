@@ -437,21 +437,7 @@ def main():
                 load_models()
                 load_excel_data()
                 st.session_state.initialized = True
-                st.success("✅ Models and data loaded successfully!")
-                # Add JavaScript to auto-remove the success message
-                st.markdown(
-                    """
-                    <script>
-                    setTimeout(function() {
-                        var successElements = parent.document.querySelectorAll('.stAlert .stSuccess');
-                        successElements.forEach(function(element) {
-                            element.style.display = 'none';
-                        });
-                    }, 5000);
-                    </script>
-                    """,
-                    unsafe_allow_html=True
-                )
+                st.toast("✅ Models and data loaded successfully!", icon="✅")
             except Exception as e:
                 st.error(f"❌ Initialization failed: {str(e)}")
                 return
