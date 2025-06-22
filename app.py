@@ -630,6 +630,9 @@ def home_page():
         <div class="about-text">
             Our model identifies key economic signals across <strong>six critical dimensions</strong>:
         </div>
+        <div class="about-text" style="font-size: 0.9rem; color: #666; margin-top: -1rem; margin-bottom: 1rem;">
+            <i class="fas fa-mouse-pointer"></i> Click any attribute below to view the specific model on Hugging Face
+        </div>
         <div class="attributes-grid" >
             <a href="https://huggingface.co/Vk311810/fomc_sentiment_classifier">
             <div class="attribute-card" >
