@@ -164,47 +164,44 @@ st.set_page_config(
 # Enhanced Custom CSS for styling with white background and improved design
 st.markdown("""
 <style>
-    /* Main app background */
     .stApp {
         background-color: #ffffff;
     }
-    
-    /* Main container styling */
+
     .main .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
         max-width: 1200px;
         margin: 0 auto;
     }
-    
-    /* Header styling */
+
     .main-header {
         text-align: center;
-        padding: 3rem 0 2rem 0;
+        padding: 3rem 1rem 2rem 1rem;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         border-radius: 20px;
         margin-bottom: 3rem;
         color: white;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
-    
+
     .main-title {
         font-size: 3.5rem !important;
         font-weight: 800 !important;
         margin-bottom: 1rem !important;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
-    
+
     .subtitle {
         font-size: 1.4rem !important;
         font-weight: 400 !important;
         margin: 0 auto;
-        opacity: 0.95;
+        opacity: 0.98;
+        color: #f5f5f5;
         max-width: 800px;
         line-height: 1.6;
     }
-    
-    /* Content sections */
+
     .content-section {
         background: #ffffff;
         padding: 2.5rem;
@@ -213,7 +210,7 @@ st.markdown("""
         box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         border: 1px solid #e8e8e8;
     }
-    
+
     .intro-text {
         font-size: 1.2rem;
         line-height: 1.8;
@@ -222,15 +219,18 @@ st.markdown("""
         margin: 2rem auto;
         max-width: 900px;
     }
-    
-    /* About section styling */
+
+    .intro-text p {
+        text-align: left;
+    }
+
     .about-section {
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         padding: 3rem;
         border-radius: 20px;
         margin: 3rem 0;
     }
-    
+
     .about-title {
         color: #2c3e50;
         font-size: 2rem;
@@ -238,7 +238,7 @@ st.markdown("""
         text-align: center;
         margin-bottom: 2rem;
     }
-    
+
     .about-text {
         font-size: 1.1rem;
         line-height: 1.7;
@@ -246,15 +246,14 @@ st.markdown("""
         text-align: center;
         margin-bottom: 2rem;
     }
-    
-    /* Attributes grid */
+
     .attributes-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.2rem;
         margin: 2rem 0;
     }
-    
+
     .attribute-card {
         background: white;
         padding: 1.5rem;
@@ -264,47 +263,44 @@ st.markdown("""
         border: 2px solid #e8e8e8;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
+
     .attribute-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         border-color: #667eea;
     }
-    
+
     .attribute-icon {
         font-size: 2.5rem;
         margin-bottom: 1rem;
     }
-    
+
     .attribute-title {
         font-size: 1.1rem;
         font-weight: 600;
         color: #2c3e50;
         margin: 0;
     }
-    
-    /* Button styling */
+
     .stButton > button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         border: none;
         border-radius: 50px;
-        padding: 1rem 3rem;
+        padding: 1rem 2.5rem;
         font-size: 1.2rem;
         font-weight: 600;
         box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
         transition: all 0.3s ease;
-        margin: 2rem auto;
+        margin: 2rem auto 1rem auto;
         display: block;
-        width: 300px;
     }
-    
+
     .stButton > button:hover {
         transform: translateY(-3px);
         box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
     }
-    
-    /* Classification results styling */
+
     .classification-result {
         background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         padding: 1.5rem;
@@ -312,23 +308,22 @@ st.markdown("""
         margin: 1rem 0;
         border-left: 4px solid #667eea;
     }
-    
+
     .confidence-high {
         color: #28a745;
         font-weight: bold;
     }
-    
+
     .confidence-medium {
         color: #ffc107;
         font-weight: bold;
     }
-    
+
     .confidence-low {
         color: #dc3545;
         font-weight: bold;
     }
-    
-    /* Historical section styling */
+
     .historical-section {
         background: #f8f9fa;
         padding: 1.5rem;
@@ -336,8 +331,7 @@ st.markdown("""
         margin: 1rem 0;
         border: 1px solid #dee2e6;
     }
-    
-    /* Divider styling */
+
     hr {
         border: none;
         height: 2px;
@@ -345,8 +339,7 @@ st.markdown("""
         margin: 3rem 0;
         border-radius: 2px;
     }
-    
-    /* Footer styling */
+
     .footer-info {
         text-align: center;
         padding: 2rem;
@@ -356,32 +349,40 @@ st.markdown("""
         color: #6c757d;
         font-size: 1rem;
     }
-    
-    /* Remove default streamlit styling */
+
     .stMarkdown {
         margin-bottom: 0;
     }
-    
-    /* Responsive design */
+
     @media (max-width: 768px) {
         .main-title {
-            font-size: 2.5rem !important;
+            font-size: 2.4rem !important;
         }
-        
+
         .subtitle {
-            font-size: 1.2rem !important;
+            font-size: 1.1rem !important;
+            padding: 0 1rem;
         }
-        
+
         .content-section {
             padding: 1.5rem;
         }
-        
+
         .about-section {
             padding: 2rem;
+        }
+
+        .attribute-card {
+            padding: 1rem;
+        }
+
+        .stButton > button {
+            width: 100% !important;
         }
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 def format_confidence(confidence: float) -> str:
     """Format confidence score with color coding"""
