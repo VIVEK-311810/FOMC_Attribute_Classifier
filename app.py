@@ -432,7 +432,7 @@ def home_page():
     <div class="main-header">
         <h1 class="main-title">🏛️ FOMC Statement Classifier</h1>
         <div style="text-align: center;">
-            <p class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</p>
+            <h1 class="subtitle">A financial-domain BERT model for Federal Reserve (FOMC) document analysis.</h1>
         </div>
     </div>
     """, unsafe_allow_html=True)
