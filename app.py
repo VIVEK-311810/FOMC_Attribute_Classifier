@@ -340,15 +340,6 @@ st.markdown("""
         border-radius: 2px;
     }
 
-    .footer-info {
-        text-align: center;
-        padding: 2rem;
-        background: #f8f9fa;
-        border-radius: 15px;
-        margin-top: 3rem;
-        color: #6c757d;
-        font-size: 1rem;
-    }
 
     .stMarkdown {
         margin-bottom: 0;
@@ -656,13 +647,6 @@ def home_page():
             st.session_state.page = "classification"
             st.rerun()
 
-    # Footer
-    st.markdown("""
-    <div class="footer-info">
-        <strong>Project by:</strong> Vivek Maddula<br>
-        <strong>Research Guide:</strong> Dr. Brindha
-    </div>
-    """, unsafe_allow_html=True)
 
 
 def classification_page():
