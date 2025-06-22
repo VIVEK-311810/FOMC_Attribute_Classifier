@@ -716,6 +716,7 @@ def classification_page():
         default_text = st.session_state.get("loaded_text", "")
         st.subheader("📝 Input")
         text_input = st.text_area(
+            "Enter Text Here",
             value=default_text,
             height=200,
             placeholder="Paste FOMC statement text here or select from historical data above...",
