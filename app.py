@@ -238,7 +238,7 @@ def display_classification_results(results: Dict):
 
 def home_page():
     """Display the home page"""
-    st.markdown("<div class=\"main-header\">", unsafe_allow_html=True)
+    st.markdown("<div class=\"main-header\" style='text-align: center; padding: 2rem 0;'>", unsafe_allow_html=True)
     
     # Header image placeholder (you can add an actual image here)
     st.markdown("# 🏛️ FOMC Statement Classifier")
