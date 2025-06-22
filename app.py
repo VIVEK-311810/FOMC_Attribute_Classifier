@@ -403,6 +403,10 @@ st.markdown("""
         color: black;
     }
 
+    div[data-testid="stTextAreaRootElement"] {
+        background-color: white !important;
+        color: black;
+    }
 
 
     @media (max-width: 768px) {
