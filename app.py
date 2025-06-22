@@ -265,8 +265,8 @@ def home_page():
     st.markdown("---")
     
     if st.button("🚀 Enter Classification Tool", type="primary", use_container_width=True):
-    st.session_state.page = "classification"
-    st.rerun()
+        st.session_state.page = "classification"
+        st.rerun()
     
     st.markdown("</div>", unsafe_allow_html=True)
 
