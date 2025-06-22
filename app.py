@@ -417,7 +417,10 @@ st.markdown("""
         background-color: white !important;
         color: black;
     }
-
+    div[data-testid="stTextAreaRootElement"] div textarea::placeholder{
+        background-color: white !important;
+        color: black;
+    }
     
 
     .stSelectbox div div{
