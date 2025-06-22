@@ -303,6 +303,7 @@ st.markdown("""
     .classification-result {
         background: #ffffff;
         padding: 1.5rem;
+        color: #2c3e50;
         border-radius: 12px;
         margin: 1rem 0;
         border-left: 4px solid #667eea;
