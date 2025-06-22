@@ -265,7 +265,7 @@ def home_page():
     """, unsafe_allow_html=True)
   
     st.markdown("""
-    <div style='text-align: center; padding: 2rem 0;'>
+    <div style='text-align: center; padding: 1.5rem 0;'>
         <h3>
             This project fine-tuned ProsusAI/finBERT using FOMC statements to improve financial NLP tasks.
         </h3>
