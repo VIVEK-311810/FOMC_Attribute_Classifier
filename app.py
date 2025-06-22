@@ -255,8 +255,8 @@ def home_page():
         }
     </style>
     """, unsafe_allow_html=True)
-      
-      # Centered main header
+
+    # Centered main header
     st.markdown("""
     <div class="centered-header">
         <h1 class="main-title">🏛️ FOMC Statement Classifier</h1>
@@ -280,13 +280,11 @@ def home_page():
     </div>
     """, unsafe_allow_html=True)
 
-  
-    st.markdown("--- ")
+    st.markdown("---")
     
     # Section: About the AI Tool
     st.subheader("🧠 About the AI Tool")
     
-
     st.markdown("""
     This tool is powered by a **fine-tuned FinBERT model**, a variant of Google's BERT 
     specifically pre-trained on a vast corpus of financial text. We further specialized it 
