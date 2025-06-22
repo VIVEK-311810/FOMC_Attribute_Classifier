@@ -181,22 +181,22 @@ st.markdown("""
         border-radius: 20px;
         margin-bottom: 3rem;
         color: white;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     }
 
     .main-title {
         font-size: 3.5rem !important;
         font-weight: 800 !important;
         margin-bottom: 1rem !important;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     }
 
     .subtitle {
         font-size: 1.4rem !important;
         font-weight: 400 !important;
         margin: 0 auto;
-        opacity: 0.98;
-        color: #f5f5f5;
+        opacity: 0.95;
+        color: #f0f0f0;
         max-width: 800px;
         line-height: 1.6;
     }
@@ -206,7 +206,7 @@ st.markdown("""
         padding: 2.5rem;
         border-radius: 15px;
         margin: 2rem 0;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        box-shadow: 0 6px 25px rgba(0,0,0,0.08);
         border: 1px solid #e8e8e8;
     }
 
@@ -221,6 +221,7 @@ st.markdown("""
 
     .intro-text p {
         text-align: left;
+        margin-bottom: 1.5rem;
     }
 
     .about-section {
@@ -228,6 +229,7 @@ st.markdown("""
         padding: 3rem;
         border-radius: 20px;
         margin: 3rem 0;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     }
 
     .about-title {
@@ -243,29 +245,29 @@ st.markdown("""
         line-height: 1.7;
         color: #34495e;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 
     .attributes-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.2rem;
+        gap: 1.5rem;
         margin: 2rem 0;
     }
 
     .attribute-card {
-        background: white;
+        background: #fff;
         padding: 1.5rem;
         border-radius: 12px;
         text-align: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        border: 2px solid #e8e8e8;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        border: 2px solid #e0e0e0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
     .attribute-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        transform: translateY(-6px);
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
         border-color: #667eea;
     }
 
@@ -289,7 +291,7 @@ st.markdown("""
         padding: 1rem 2.5rem;
         font-size: 1.2rem;
         font-weight: 600;
-        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.25);
         transition: all 0.3s ease;
         margin: 2rem auto 1rem auto;
         display: block;
@@ -297,7 +299,7 @@ st.markdown("""
 
     .stButton > button:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.35);
     }
 
     .classification-result {
@@ -381,6 +383,7 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
