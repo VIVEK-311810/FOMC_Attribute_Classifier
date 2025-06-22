@@ -398,7 +398,7 @@ st.markdown("""
         background-color: transparent !important;
     }
 
-    .stSelectbox > div{
+    .stSelectbox div{
       background-color:white;
       color:black;
     }
