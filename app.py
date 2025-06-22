@@ -398,6 +398,11 @@ st.markdown("""
     }
 
     div[data-testid="stMarkdownContainer"] {
+        background-color: white !important;
+        color: black;
+    }
+
+    div[data-baseweb="select"] {
         background-color: transparent !important;
         color: black;
     }
