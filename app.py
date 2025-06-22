@@ -356,20 +356,19 @@ st.markdown("""
     }
 
     .stDataFrame {
+        background-color: white;
+        color: black;
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
 
     .stDataFrame table {
-        background: linear-gradient(to bottom, #e0f7f7, #d0f0f0);
         border-collapse: collapse;
         width: 100%;
     }
 
     .stDataFrame th {
-        background: linear-gradient(to right, #c0e7e7, #b0e0e0);
-        color: #34495e;
         font-weight: bold;
         padding: 12px 15px;
         text-align: left;
@@ -379,7 +378,6 @@ st.markdown("""
     .stDataFrame td {
         padding: 10px 15px;
         border-bottom: 1px solid #c1e9e9;
-        color: #2c3e50;
     }
 
     .stDataFrame tr:last-child td {
