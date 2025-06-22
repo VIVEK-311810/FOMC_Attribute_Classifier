@@ -163,224 +163,168 @@ st.set_page_config(
 # Enhanced Custom CSS for styling with white background and improved design
 st.markdown("""
 <style>
-    .stApp {
-        background-color: #ffffff;
-    }
+/* 1. Global Font and App Container */
+html, body, [class*="st"] {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    color: #2d3436;
+    background-color: #fdfdfd;
+}
 
-    .main .block-container {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+/* 2. Main Layout */
+.stApp {
+    background: linear-gradient(180deg, #ffffff 0%, #f9f9fb 100%);
+}
+.main .block-container {
+    max-width: 1150px;
+    padding: 3rem 2rem 4rem;
+    margin: 0 auto;
+}
 
-    .main-header {
-        text-align: center;
-        padding: 3rem 1rem 2rem 1rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 20px;
-        margin-bottom: 3rem;
-        color: white;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+/* 3. Header Area */
+.main-header {
+    background: linear-gradient(135deg, #5a78ff 0%, #b96fef 100%);
+    border-radius: 20px;
+    text-align: center;
+    padding: 3.5rem 2rem;
+    margin-bottom: 2.5rem;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.main-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 400;
+    opacity: 0.96;
+    max-width: 700px;
+    margin: 1.2rem auto 0;
+    line-height: 1.6;
+}
 
+/* 4. Section Containers */
+.content-section, .about-section, .historical-section {
+    background: white;
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border: 1px solid #e0e0e0;
+}
+.about-section {
+    background: linear-gradient(135deg, #f2f4f8 0%, #dbe2f1 100%);
+}
+.intro-text {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.15rem;
+    color: #34495e;
+    line-height: 1.8;
+}
+
+/* 5. Attribute Grid */
+.attributes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.attribute-card {
+    background: #ffffff;
+    border: 1px solid #e3e6ec;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.attribute-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+    border-color: #7f8aff;
+}
+.attribute-icon {
+    font-size: 2.4rem;
+    margin-bottom: 0.75rem;
+}
+.attribute-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #2d3436;
+}
+
+/* 6. Buttons */
+.stButton > button {
+    background: linear-gradient(135deg, #5a78ff 0%, #a76eff 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.9rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+    margin: 2rem auto;
+    display: block;
+}
+.stButton > button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* 7. Classification Result Styling */
+.classification-result {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1rem 0;
+    border-left: 4px solid #667eea;
+}
+.confidence-high { color: #28a745; font-weight: bold; }
+.confidence-medium { color: #ffc107; font-weight: bold; }
+.confidence-low { color: #dc3545; font-weight: bold; }
+
+/* 8. Divider */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 3rem 0;
+    border-radius: 2px;
+}
+
+/* 9. Footer */
+.footer-info {
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 1.5rem;
+    color: #7b8ca1;
+    margin-top: 2.5rem;
+}
+
+/* 10. Mobile Responsiveness */
+@media (max-width: 768px) {
     .main-title {
-        font-size: 3.5rem !important;
-        font-weight: 800 !important;
-        margin-bottom: 1rem !important;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        font-size: 2.3rem;
     }
-
     .subtitle {
-        font-size: 1.4rem !important;
-        font-weight: 400 !important;
-        margin: 0 auto;
-        opacity: 0.98;
-        color: #f5f5f5;
-        max-width: 800px;
-        line-height: 1.6;
-    }
-
-    .content-section {
-        background: #ffffff;
-        padding: 2.5rem;
-        border-radius: 15px;
-        margin: 2rem 0;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        border: 1px solid #e8e8e8;
-    }
-
-    .intro-text {
-        font-size: 1.2rem;
-        line-height: 1.8;
-        color: #2c3e50;
-        text-align: center;
-        margin: 2rem auto;
-        max-width: 900px;
-    }
-
-    .intro-text p {
-        text-align: left;
-    }
-
-    .about-section {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        padding: 3rem;
-        border-radius: 20px;
-        margin: 3rem 0;
-    }
-
-    .about-title {
-        color: #34495e;
-        font-size: 2rem;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .about-text {
         font-size: 1.1rem;
-        line-height: 1.7;
-        color: #34495e;
-        text-align: center;
-        margin-bottom: 2rem;
+        padding: 0 1rem;
     }
-
-    .attributes-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.2rem;
-        margin: 2rem 0;
-    }
-
-    .attribute-card {
-        background: white;
+    .content-section, .about-section {
         padding: 1.5rem;
-        border-radius: 12px;
-        text-align: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        border: 2px solid #e8e8e8;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .attribute-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        border-color: #667eea;
-    }
-
-    .attribute-icon {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .attribute-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #2c3e50;
-        margin: 0;
-    }
-
     .stButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        border-radius: 50px;
-        padding: 1rem 2.5rem;
-        font-size: 1.2rem;
-        font-weight: 600;
-        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-        transition: all 0.3s ease;
-        margin: 2rem auto 1rem auto;
-        display: block;
+        width: 100%;
     }
-
-    .stButton > button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
-    }
-
-    .classification-result {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        padding: 1.5rem;
-        border-radius: 12px;
-        margin: 1rem 0;
-        border-left: 4px solid #667eea;
-    }
-
-    .confidence-high {
-        color: #28a745;
-        font-weight: bold;
-    }
-
-    .confidence-medium {
-        color: #ffc107;
-        font-weight: bold;
-    }
-
-    .confidence-low {
-        color: #dc3545;
-        font-weight: bold;
-    }
-
-    .historical-section {
-        background: #f8f9fa;
-        padding: 1.5rem;
-        border-radius: 12px;
-        margin: 1rem 0;
-        border: 1px solid #dee2e6;
-    }
-
-    hr {
-        border: none;
-        height: 2px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        margin: 3rem 0;
-        border-radius: 2px;
-    }
-
-    .footer-info {
-        text-align: center;
-        padding: 2rem;
-        background: #f8f9fa;
-        border-radius: 15px;
-        margin-top: 3rem;
-        color: #6c757d;
-        font-size: 1rem;
-    }
-
-    .stMarkdown {
-        margin-bottom: 0;
-    }
-
-    @media (max-width: 768px) {
-        .main-title {
-            font-size: 2.4rem !important;
-        }
-
-        .subtitle {
-            font-size: 1.1rem !important;
-            padding: 0 1rem;
-        }
-
-        .content-section {
-            padding: 1.5rem;
-        }
-
-        .about-section {
-            padding: 2rem;
-        }
-
-        .attribute-card {
-            padding: 1rem;
-        }
-
-        .stButton > button {
-            width: 100% !important;
-        }
-    }
+}
 </style>
 """, unsafe_allow_html=True)
+
 
 
 def format_confidence(confidence: float) -> str:
