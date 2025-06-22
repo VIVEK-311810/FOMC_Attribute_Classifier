@@ -324,7 +324,7 @@ st.markdown("""
     }
 
     .historical-section {
-        background: #f8f9fa;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         padding: 1.5rem;
         border-radius: 12px;
         margin: 1rem 0;
