@@ -251,7 +251,9 @@ st.markdown("""
         gap: 1.5rem;
         margin: 2rem 0;
     }
-
+    .attribute-grid a:link{
+      text-decoration:none;
+    }
     .attribute-card {
         background: #fff;
         padding: 1.5rem;
@@ -281,6 +283,8 @@ st.markdown("""
         color: #2c3e50;
         margin: 0;
     }
+
+    
 
     .stButton > button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
