@@ -394,7 +394,7 @@ st.markdown("""
     }
 
     div[data-testid="stExpanderDetails"] {
-        background-color: transparent !important;
+        background-color: white !important;
     }
 
     .stSelectbox{
